@@ -30,12 +30,12 @@ def main(argv):
     
     if (extension != ".py") :
         raise IOError( 'Invalid input file. Please enter tractogram file .py' )
-
+    
     #check il file è nella cartella
     if os.path.isfile(source):
         print ("File exist")
     else:
-        print ("File not exist")
+        raise IOError( 'File not exist' )
 
     # create dir result if not exists
     if not os.path.exists('result'):
