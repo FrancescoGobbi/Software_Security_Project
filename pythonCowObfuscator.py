@@ -12,16 +12,18 @@ from fpdf import FPDF
 def main(argv):
 
     if len(argv) == 0: #se non ho passato nulla è un errore
-        print('Error: invalid use.')
-        print('python3.6 pythonCowObfuscator.py <source.py>')
-        sys.exit(2)
+        #print('Error: invalid use.')
+        #print('python3.6 pythonCowObfuscator.py <source.py>')
+        #sys.exit(2)
+        raise IOError( 'Error: invalid use. Please use : "python3.6 pythonCowObfuscator.py <source.py>" ' )
 
     try:
         opt, arg = getopt.getopt(argv, " ", ["idir="])
     except getopt.GetoptError:
-        print('Error: invalid use.')
-        print('python3.6 pythonCowObfuscator.py <source.py>')
-        sys.exit(2)
+        #print('Error: invalid use.')
+        #print('python3.6 pythonCowObfuscator.py <source.py>')
+        #sys.exit(2)
+        raise IOError( 'Error: invalid use. Please use : "python3.6 pythonCowObfuscator.py <source.py>" ' )
 
     source = arg[0] #Nome del file passato
 
