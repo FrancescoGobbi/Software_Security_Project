@@ -25,13 +25,25 @@ def main(argv):
 
     source = arg[0] #Nome del file passato
 
+    #check se il file è un file .py 
+    extension = os.path.splitext(source)[1]  #take extension of file
+    
+    if (extension != ".py") :
+        raise IOError( 'Invalid input file. Please enter tractogram file .py' )
+
+    #check il file è nella cartella
+    if os.path.isfile(source):
+        print ("File exist")
+    else:
+        print ("File not exist")
+
     # create dir result if not exists
     if not os.path.exists('result'):
         os.makedirs('result')
 
     # 0) create cfg
     cfg = CFGBuilder().build_from_file('Before_Obfuscate', source)
-    a = cfg.build_visual('Before_Obfuscate', format='pdf', calls=True)
+    a = cfg.build_visual('CFG/Before_Obfuscate', format='pdf', calls=True)
 
     # 1) dead code
     dead_code.start(source)
