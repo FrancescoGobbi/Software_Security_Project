@@ -31,7 +31,7 @@ def start(source_path):
 
                 # verifico se ci sono commenti sulla riga, e in tal caso prendo solo la parte di stringa che lo precede
                 if '#' in line:
-                    line = line[:line.find('#')]
+                    line = line[:line.find('#')] #dall'inizio della riga al commento escluso
 
                 # verifico che line non sia vuota
                 if line != '':
@@ -64,7 +64,7 @@ def start(source_path):
 # funzione che aggiunge codice morto
 def insert_dead_code(output):
     # seglie a random un file tra dead_code_.py1,...,dead_code_21.py
-    ran = random.randint(1, 21)
+    ran = random.randint(1, 100)
     dead_code = open('./dead_code/dead_code_' + str(ran) + '.py', 'r')
 
     # inserisce il file dead_code_x.py nel file output.py
