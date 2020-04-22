@@ -1,34 +1,29 @@
 import tokenizer
 import random
-import re
+import re #per le ReGeX = Espressioni Regolari
 import utils
-
-
-__author__ = "Ceoletta Valentina, Zanotti Mattia, Zenari Nicolo"
-__version__ = '1.0'
-__email__ = "{valentina.ceoletta, mattia.zanotti, nicolo.zenari}@studenti.univr.it"
-
 
 """ A set with variables name. """
 vars = set()
 
 
-def replace_instructions(source):
+def replace_instructions(source): #Parte chiamata dal codice
     """
     For each line, if it is neccessary, it replaces an instruction with a sequence of instructions.
 
     :param lines: Result from tokenizer.tokenize_file(...).
     :return: A list of lines.
     """
-    lines = tokenizer.tokenize_file(source)
+    lines = tokenizer.tokenize_file(source) #nel file "tokenizer.py", read a line nel file source (in questo caso l'output)
     for index, line in enumerate(lines):
-        line_tokenized = tokenizer.tokenize_line(line)
+        line_tokenized = tokenizer.tokenize_line(line) #line_tokenized è una lista di stringhe
         line_to_replace = line
 
         # short to long
-        pattern = '\w+[\+\-\*\/]=\w+'
+        pattern = '\w+[\+\-\*\/]=\w+' #uso di una ReGeX
         if re.search(pattern, line) is not None:
-            line_to_replace = short_to_long(line_tokenized)
+            line_to_replace = short_to_long(line_tokenized) # trasforma una line in cui vi è un'operazione dalla forma short
+            # a quella long (esempio v+=1 --> v=v+1)
             line_tokenized = tokenizer.tokenize_line(line_to_replace)
 
         # match the correct pattern
@@ -73,9 +68,10 @@ def match_pattern(line):
     :param line: The code line to categorize.
     :return: The category code.
     """
-    pattern_var_var_var = '\w+\s*\=\s*\w+\s*[\+\-\*\/]\s*\w+'
-    pattern_var_var_num = '\w+\s*\=\s*\w+\s*[\+\-\*\/]\s*\d+'
-    pattern_var_num_var = '\w+\s*\=\s*\d+\s*[\+\-\*\/]\s*\w+'
+    #Uso delle ReGeX per trovare variabili e numeri 
+    pattern_var_var_var = '\w+\s*\=\s*\w+\s*[\+\-\*\/]\s*\w+' # (var = var + var)
+    pattern_var_var_num = '\w+\s*\=\s*\w+\s*[\+\-\*\/]\s*\d+' # (var = var + num)
+    pattern_var_num_var = '\w+\s*\=\s*\d+\s*[\+\-\*\/]\s*\w+' # (var = num + var)
     if (re.search(pattern_var_num_var, line)) is not None:
         return 2
     elif (re.search(pattern_var_var_num, line)) is not None:

@@ -31,7 +31,7 @@ def main(argv):
     extension = os.path.splitext(source)[1]  #take extension of file
     
     if (extension != ".py") :
-        raise IOError( 'Invalid input file. Please enter tractogram file .py' )
+        raise IOError( 'Invalid input file. Please enter python file' )
     
     #check il file è nella cartella
     if os.path.isfile(source):
@@ -51,9 +51,9 @@ def main(argv):
     dead_code.start(source)
 
     # 2) gen sequence
-    source = './result/output.py'
-    with open('./result/result1.py', 'w') as res:
-        for line in gen.replace_instructions(source):
+    source = './result/output.py' #Apro l'output che ho creato prima nel dead code
+    with open('./result/result1.py', 'w') as res: #creo il primo risultato
+        for line in gen.replace_instructions(source): #nel file "generate_equivalent_instructions_sequence.py"
             res.write(line)
 
     # 3) replace constants
