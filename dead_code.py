@@ -43,6 +43,29 @@ def start(source_path):
                             inizialize_dead_code_variables(output) #scrivere le variabili del dead-code nel file di output
                             #indico che le variabili del dead_code sono state inizializzate
                             dead_code_variables_is_inizialized = True
+                        
+                        choice1 = random.randint(0, 1)
+                        #choice1 
+                        #0 = inserisco il dead code prima e dopo la line candidata
+                        #1 = inserisco il dead code o solo prima o solo dopo la linea candidata                        
+                        if choice1 == 0:
+                            insert_dead_code(output) #inserisco il dead_code prima
+                            output.write('\n' + line) #metto la riga candidata
+                            insert_dead_code_with_tab(output) #inserisco il dead code dopo con tabulazione
+
+                        else: #choice1 == 1
+                            choice2 = random.randint(0, 1)
+                            #choice2
+                            #0 = inserisco il codice prima della line candidata
+                            #1 = inserisco il codice dopo la line candidata
+
+                            if choice2 == 0:
+                                insert_dead_code(output) #inserisco il dead_code prima
+                                output.write('\n' + line) #metto la riga candidata
+                            else:
+                                output.write(line) #metto la riga candidata
+                                insert_dead_code_with_tab(output) #inserisco il dead code dopo con tabulazione
+
 
                         # inserisco il codice morto
                         insert_dead_code(output)
@@ -68,11 +91,22 @@ def start(source_path):
 def insert_dead_code(output):
     # seglie a random un file tra dead_code_.py1,...,dead_code_21.py
     ran = random.randint(1, 100) #scenta random del file
-    dead_code = open('./dead_code/dead_code_' + str(ran) + '.py', 'r')
+    dead_code = open('./Trashcode_New/trash_code_' + str(ran) + '.py', 'r')
 
     # inserisce il file dead_code_x.py nel file output.py
     for line in dead_code.readlines():
         output.write(line)
+
+    dead_code.close()
+
+def insert_dead_code_with_tab(output):
+    # seglie a random un file tra dead_code_.py1,...,dead_code_21.py
+    ran = random.randint(1, 100) #scenta random del file
+    dead_code = open('./Trashcode_New/trash_code_' + str(ran) + '.py', 'r')
+
+    # inserisce il file dead_code_x.py nel file output.py
+    for line in dead_code.readlines():
+        output.write('\t' + line) #linea con tabulazione
 
     dead_code.close()
 
