@@ -1,4 +1,4 @@
-if DonAbbondio >= 10:
+if Montecchi >= 10:
     Romeo-=2
     Giulietta-=1
 
