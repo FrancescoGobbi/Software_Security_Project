@@ -1,6 +1,6 @@
 import random
 
-candidate_lines = ['while', 'for', 'def', 'if ']
+candidate_lines = ['while', 'for', 'def', 'if ','print']
 
 def start(source_path):
     # apro il file da offuscare
