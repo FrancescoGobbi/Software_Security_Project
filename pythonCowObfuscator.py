@@ -50,7 +50,11 @@ def main(argv):
     # 1) dead code
     dead_code.start(source)
 
-    # 2) gen sequence
+    # 1.1) create cfg
+    cfg = CFGBuilder().build_from_file('After_Insertion_Dead_Code', './result/output.py')
+    a = cfg.build_visual('CFG/After_Insertion_Dead_Cod', format='pdf', calls=True)
+
+    '''# 2) gen sequence
     source = './result/output.py' #Apro l'output che ho creato prima nel dead code
     with open('./result/result1.py', 'w') as res: #creo il primo risultato
         for line in gen.replace_instructions(source): #nel file "generate_equivalent_instructions_sequence.py"
@@ -72,7 +76,7 @@ def main(argv):
     source = './result/result3.py'
     with open('./result/obfuscated.py', 'w') as res:
         for line in of.obfuscate(source, dic):
-            res.write(line)
+            res.write(line)'''
 
 
 if __name__ == '__main__':
