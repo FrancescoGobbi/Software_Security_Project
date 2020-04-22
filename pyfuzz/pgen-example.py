@@ -11,4 +11,4 @@ if __name__ == "__main__":
 
     cgen = CodeGenerator()
 
-    print cgen.generate(m)
+    print(cgen.generate(m))
