@@ -1,4 +1,4 @@
 if Romeo > Giulietta:
-    PromessiSposi(Guleitta, Romeo)
+    PromessiSposi(Giulietta, Romeo)
 else:
     William(Romeo, Giulietta)

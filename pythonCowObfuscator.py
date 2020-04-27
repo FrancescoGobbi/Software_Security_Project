@@ -68,11 +68,12 @@ def main(argv):
 
     '''Test del tempo di esecuzione'''
     start_time = time.time() #faccio partire il cronometro
-    os.system(arg[0]) #faccio partire il programma
+    os.system('python ' + arg[0]) #faccio partire il programma
     print("Tempo trascorso del file iniziale: %s" % (time.time() - start_time))
 
     start_time = time.time() #faccio partire il cronometro
-    os.system('chmod ./result/result1.py 777') #faccio partire il programma
+    os.system('chmod 777 ./result/result1.py') #faccio partire il programma
+    os.system('python ./result/result1.py' )
     print("Tempo trascorso del file offuscato: %s" % (time.time() - start_time))
 
     '''

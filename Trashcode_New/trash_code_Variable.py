@@ -14,3 +14,13 @@ Giulietta = 10
 Romeo = 10
 Montecchi = 10
 Balcone = 0
+
+def PromessiSposi(x,y):
+    x = x + y
+
+
+def Università(x):
+    x = x + 4
+
+def William(x, y):
+    x = x + y
