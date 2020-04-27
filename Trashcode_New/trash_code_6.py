@@ -1,8 +1,8 @@
 def PromessiSposi(x, y):
     while x>y:
-        y+=1
+        y = y + 1
 
     if y>x:
-        x+=5
-        y+=5
+        x = x + 5
+        y = y + 5
     

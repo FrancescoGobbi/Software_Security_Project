@@ -3,6 +3,6 @@ Francesco = 3
 
 i = 0
 while i<Riccardo:
-    Francesco+=1
+    Francesco = Francesco + 1
 
 Riccardo+=5

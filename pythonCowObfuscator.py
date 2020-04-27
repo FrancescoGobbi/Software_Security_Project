@@ -6,6 +6,8 @@ import replace_constants as rc
 import sys
 import getopt
 import os
+import stat #per il chmod
+import time #per calcolare il tempo di ese
 from staticfg import CFGBuilder
 from fpdf import FPDF
 
@@ -54,12 +56,26 @@ def main(argv):
     cfg = CFGBuilder().build_from_file('After_Insertion_Dead_Code', './result/output.py')
     a = cfg.build_visual('CFG/After_Insertion_Dead_Cod', format='pdf', calls=True)
 
-    '''# 2) gen sequence
+    # 2) gen sequence
     source = './result/output.py' #Apro l'output che ho creato prima nel dead code
     with open('./result/result1.py', 'w') as res: #creo il primo risultato
         for line in gen.replace_instructions(source): #nel file "generate_equivalent_instructions_sequence.py"
             res.write(line)
 
+    # 2.1) create cfg
+    cfg = CFGBuilder().build_from_file('After_Change_Sequence', './result/result1.py')
+    a = cfg.build_visual('CFG/After_Change_Sequence', format='pdf', calls=True)
+
+    '''Test del tempo di esecuzione'''
+    start_time = time.time() #faccio partire il cronometro
+    os.system(arg[0]) #faccio partire il programma
+    print("Tempo trascorso del file iniziale: %s" % (time.time() - start_time))
+
+    start_time = time.time() #faccio partire il cronometro
+    os.system('chmod ./result/result1.py 777') #faccio partire il programma
+    print("Tempo trascorso del file offuscato: %s" % (time.time() - start_time))
+
+    '''
     # 3) replace constants
     source = './result/result1.py'
     with open('./result/result2.py', 'w') as res:

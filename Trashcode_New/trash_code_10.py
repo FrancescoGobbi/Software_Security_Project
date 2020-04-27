@@ -1,4 +1,4 @@
 if Sicurezza > Embedded:
-    Univr+=3
+    Univr = Univr + 3
 else: 
-    Univr-=10
+    Univr = Univr - 10

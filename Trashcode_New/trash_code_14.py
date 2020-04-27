@@ -1,6 +1,6 @@
 def Università(Indirizzo):
     if Indirizzo>=10:
-        Univr+=10
+        Univr = Univr + 10
     else:
-        Univr+=2
+        Univr = Univr + 2
     
