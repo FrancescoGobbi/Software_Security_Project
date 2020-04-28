@@ -47,14 +47,14 @@ def main(argv):
 
     # 0) create cfg
     cfg = CFGBuilder().build_from_file('Before_Obfuscate', source)
-    a = cfg.build_visual('CFG/Before_Obfuscate', format='pdf', calls=True)
+    a = cfg.build_visual('CFG/1)Before_Obfuscate', format='pdf', calls=True)
 
     # 1) dead code
     dead_code.start(source)
 
     # 1.1) create cfg
     cfg = CFGBuilder().build_from_file('After_Insertion_Dead_Code', './result/output.py')
-    a = cfg.build_visual('CFG/After_Insertion_Dead_Cod', format='pdf', calls=True)
+    a = cfg.build_visual('CFG/2)After_Insertion_Dead_Cod', format='pdf', calls=True)
 
     # 2) gen sequence
     source = './result/output.py' #Apro l'output che ho creato prima nel dead code
@@ -64,7 +64,18 @@ def main(argv):
 
     # 2.1) create cfg
     cfg = CFGBuilder().build_from_file('After_Change_Sequence', './result/result1.py')
-    a = cfg.build_visual('CFG/After_Change_Sequence', format='pdf', calls=True)
+    a = cfg.build_visual('CFG/3)After_Change_Sequence', format='pdf', calls=True)
+
+
+    # 3) replace constants
+    source = './result/result1.py'
+    with open('./result/result2.py', 'w') as res:
+        for line in rc.replace_constants(source):
+            res.write(line)
+
+    # 3.1) create cfg
+    cfg = CFGBuilder().build_from_file('After_Gen_Sequence', './result/result2.py')
+    a = cfg.build_visual('CFG/4)After_Gen_Sequence', format='pdf', calls=True)
 
     '''Test del tempo di esecuzione'''
     start_time = time.time() #faccio partire il cronometro
@@ -72,16 +83,11 @@ def main(argv):
     print("Tempo trascorso del file iniziale: %s" % (time.time() - start_time))
 
     start_time = time.time() #faccio partire il cronometro
-    os.system('chmod 777 ./result/result1.py') #faccio partire il programma
-    os.system('python ./result/result1.py' )
+    os.system('chmod 777 ./result/result2.py') #faccio partire il programma
+    os.system('python ./result/result2.py' )
     print("Tempo trascorso del file offuscato: %s" % (time.time() - start_time))
 
     '''
-    # 3) replace constants
-    source = './result/result1.py'
-    with open('./result/result2.py', 'w') as res:
-        for line in rc.replace_constants(source):
-            res.write(line)
     # 4) replace variables
     source = './result/result2.py'
     with open('./result/result3.py', 'w') as res:

@@ -1,6 +1,6 @@
-def Università(Indirizzo):
-    if Indirizzo>=10:
-        Univr = Univr + 10
+if Univr >= 10:
+    if Visual >= 5:
+        Univr = Univr + 1
     else:
-        Univr = Univr + 2
+        Univr = Univr - 2
     

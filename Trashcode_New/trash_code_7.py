@@ -1,6 +1,6 @@
-def William(Romeo,Giulietta):
-    if Romeo > Giulietta:
-        Giulietta = Giulietta + 5
-
+if Univr >= 10:
+    if Embedded >= 5:
+        Univr = Univr + 1
     else:
-        Romeo = Romeo + 5
+        Univr = Univr - 2
+    

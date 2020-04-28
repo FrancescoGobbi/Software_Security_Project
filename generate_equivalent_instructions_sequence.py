@@ -6,7 +6,7 @@ import utils
 """ A set with variables name. """
 vars = set()
 
-
+    
 def replace_instructions(source): #Parte chiamata dal codice
     """
     For each line, if it is neccessary, it replaces an instruction with a sequence of instructions.
@@ -261,7 +261,7 @@ def generate_sum_sub_var_var_num(operators):
             block += var_name_for
 
             block += ' in range(0, '
-            block += str(term-1)
+            block += str(term)
             block += '):\n'
 
             block += ' ' * (indentation +  utils.SPACE_NUM)
@@ -286,7 +286,7 @@ def generate_sum_sub_var_var_num(operators):
             block += var_name_for
 
             block += ' in range(0, '
-            block += str(term)
+            block += str(term) #MODIFICATO! Tolto il '-1'
             block += '):\n'
 
             block += ' ' * (indentation +  utils.SPACE_NUM)
@@ -310,7 +310,7 @@ def generate_sum_sub_var_var_num(operators):
             block += 'while ('
             block += var_name_while
             block += '<'
-            block += str(term-1)
+            block += str(term) #MODIFICATO! Tolto il '-1'
             block += '):\n'
             block += ' ' * (indentation + utils.SPACE_NUM)
             block += var_name
@@ -340,7 +340,7 @@ def generate_sum_sub_var_var_num(operators):
             block += 'while ('
             block += var_name_while
             block += '<'
-            block += str(term)
+            block += str(term) #MODIFICATO! Tolto il '-1'
             block += '):\n'
             block += ' ' * (indentation +  utils.SPACE_NUM)
             block += var_name
