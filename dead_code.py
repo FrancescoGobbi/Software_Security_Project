@@ -84,7 +84,9 @@ def start(source_path):
                             # scrivo la line in output
                             output.write(line)
     output.write('\n')
-    insert_dead_code(output) #inserisco un altro dead_code alla fine del file!
+    choice = random.randint(1,10)
+    for i in range(1,choice):
+        insert_dead_code(output) #inserisco un altro dead_code alla fine del file!
 
     #chiusura dei file
     output.close()
