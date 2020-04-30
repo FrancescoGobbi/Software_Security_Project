@@ -46,29 +46,14 @@ def start(source_path):
                         
                         choice1 = random.randint(0, 1)
                         #choice1 
-                        #0 = inserisco il dead code prima e dopo la line candidata
-                        #1 = inserisco il dead code o solo prima o solo dopo la linea candidata                        
+                        #0 = non viene inserito il codice morte
+                        #1 = viene inserito il dead code
                         if choice1 == 0:
-                            insert_dead_code(output) #inserisco il dead_code prima
-                            #print(line)
-                            output.write('\n' + line ) #metto la riga candidata
-                            #insert_dead_code_with_tab(output) #inserisco il dead code dopo con tabulazione
+                            output.write( line ) #metto la riga candidata
                         
                         else: #choice1 == 1
                             insert_dead_code(output)
                             output.write('\n' + line) #vado a capo e riscrivo la riga nell'output
-                            '''choice2 = random.randint(0, 1)
-                            #choice2
-                            #0 = inserisco il codice prima della line candidata
-                            #1 = inserisco il codice dopo la line candidata
-
-                            if choice2 == 0:
-                                insert_dead_code(output) #inserisco il dead_code prima
-                                output.write('\n' + line) #metto la riga candidata
-                            else:
-                                output.write(line) #metto la riga candidata
-                                insert_dead_code_with_tab(output) #inserisco il dead code dopo con tabulazione
-                        '''
 
                         # inserisco il codice morto
                         #insert_dead_code(output)
