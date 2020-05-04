@@ -14,7 +14,7 @@ def replace_instructions(source): #Parte chiamata dal codice
     :param lines: Result from tokenizer.tokenize_file(...).
     :return: A list of lines.
     """
-    lines = tokenizer.tokenize_file(source) #nel file "tokenizer.py", read a line nel file source (in questo caso l'output)
+    lines = tokenizer.tokenize_file(source) #nel file "tokenizer.py", read una line nel file source (in questo caso l'output.py)
     for index, line in enumerate(lines):
         line_tokenized = tokenizer.tokenize_line(line) #line_tokenized è una lista di stringhe
         line_to_replace = line
@@ -26,11 +26,13 @@ def replace_instructions(source): #Parte chiamata dal codice
             # a quella long (esempio v+=1 --> v=v+1)
             line_tokenized = tokenizer.tokenize_line(line_to_replace)
 
-        # match the correct pattern
+        # ricerca del pattern corret
         pattern = match_pattern(line_to_replace)
         if pattern == 0:
             # var = var + var
-            # match the correct operation
+            # ricerca della corretta operazione eseguita
+            # sostituisco la riga in posizione (index) con for o while per fare lo stesso incremento della variabile
+            # di fatto si va ad aumentare la lunghezza del programma come numero di righe e come tempi di esecuzione
             operators = get_operators(line_tokenized)
             if operators['op'] == '+' or operators['op'] == '-':
                 lines[index] = generate_sum_sub_var_var_var(operators)
@@ -40,7 +42,7 @@ def replace_instructions(source): #Parte chiamata dal codice
                 lines[index] = generate_div_var_var_var(operators)
         elif pattern == 1:
             # var = var + num
-            # match the correct operation
+            # ricerca della corretta operazione eseguita
             operators = get_operators(line_tokenized)
             if operators['op'] == '+' or operators['op'] == '-':
                 lines[index] = generate_sum_sub_var_var_num(operators)
@@ -50,7 +52,7 @@ def replace_instructions(source): #Parte chiamata dal codice
                 lines[index] = generate_div_var_var_num(operators)
         elif pattern == 2:
             # var = num + var
-            # match the correct operation
+            # ricerca della corretta operazione eseguita
             operators = get_operators(line_tokenized)
             if operators['op'] == '+' or operators['op'] == '-':
                 lines[index] = generate_sum_sub_var_num_var(operators)
@@ -69,9 +71,9 @@ def match_pattern(line):
     :return: The category code.
     """
     #Uso delle ReGeX per trovare variabili e numeri 
-    pattern_var_var_var = '\w+\s*\=\s*\w+\s*[\+\-\*\/]\s*\w+' # (var = var + var)
-    pattern_var_var_num = '\w+\s*\=\s*\w+\s*[\+\-\*\/]\s*\d+' # (var = var + num)
-    pattern_var_num_var = '\w+\s*\=\s*\d+\s*[\+\-\*\/]\s*\w+' # (var = num + var)
+    pattern_var_var_var = '\w+\s*\=\s*\w+\s*[\+\-\*\/]\s*\w+' # (var = var [\+\-\*\/] var)
+    pattern_var_var_num = '\w+\s*\=\s*\w+\s*[\+\-\*\/]\s*\d+' # (var = var [\+\-\*\/] num)
+    pattern_var_num_var = '\w+\s*\=\s*\d+\s*[\+\-\*\/]\s*\w+' # (var = num [\+\-\*\/] var)
     if (re.search(pattern_var_num_var, line)) is not None:
         return 2
     elif (re.search(pattern_var_var_num, line)) is not None:
@@ -87,16 +89,17 @@ def get_operators(tokens):
     :param tokens: Tokens given from tokenizer
     :return: A dictionary
     """
-    operators = {}
+    operators = {} #set delle componenti dell'equazione, quindi con chiave e valore associato alla chiave
     for i in range(0, len(tokens)):
-        if tokens[i][1] == '=':
-            operators['first'] = tokens[i-1][1]
-            operators['second'] = tokens[i+1][1]
-            operators['third'] = tokens[i+3][1]
-            operators['op'] = tokens[i+2][1]
+        #prendo quindi i vari operatori/componenti nella formula matematica, a partire dall'uguale!
+        if tokens[i][1] == '=': #uguale
+            operators['first'] = tokens[i-1][1] # a sinistra dell'uguale
+            operators['second'] = tokens[i+1][1] #variabile/numero a destra dell'uguale
+            operators['third'] = tokens[i+3][1] #variabile/numero a destra dell'uguale
+            operators['op'] = tokens[i+2][1] #prendo l'operatore tra le due variabili/numeri
             # TODO: indentation -1   ???
             operators['indentation'] = tokens[i-1][2][1]
-            return operators
+            return operators #ritorno il set
     return operators
 
 
@@ -110,7 +113,7 @@ def generate_sum_sub_var_var_var(operators):
     """
     # var = var {+,-} var
 
-    # get indentation
+    # prendo l'indentazione
     indentation = operators['indentation']
 
     # get variable name
@@ -119,7 +122,7 @@ def generate_sum_sub_var_var_var(operators):
     # get term
     term = operators['third']
 
-    if random.randint(0, 1) == 0:
+    if random.randint(0, 1) == 0: #se è 0 allora faccio un for
         # generate for
 
         if operators['first'] == operators['second']:
@@ -131,12 +134,14 @@ def generate_sum_sub_var_var_var(operators):
             vars.add(var_name_for)
             block += var_name_for
 
+            #così di fanno term giri del ciclo
             block += ' in range(0, '
             block += term
             block += '-1):\n'
 
-            block += ' ' * (indentation + utils.SPACE_NUM)
+            block += ' ' * (indentation + utils.SPACE_NUM) #sono dentro al ciclo, quindi ho un'indentazione in più da considerare
 
+            #nel ciclo la variabile è incrementata sempre di 1 e viene fatto term volte!
             block += var_name
             block += ' = '
             block += var_name
@@ -168,32 +173,32 @@ def generate_sum_sub_var_var_var(operators):
             block += ' + 1'
             block += '\n'
 
-    else:
+    else: #se la variabile random è 1, genero il while
         # generate while
         if operators['first'] == operators['second']:
             # v1 = v1 {+,-} v2
             block = ' ' * indentation
-            var_name_while = utils.get_random_var(vars)
+            var_name_while = utils.get_random_var(vars) #variabile sentinella generata random
             vars.add(var_name_while)
             block += var_name_while
-            block += '=0\n'
+            block += '=0\n' #variabile sentinella settata a zero
             block += ' ' * indentation
             block += 'while ('
             block += var_name_while
             block += '<'
             block += term
             block += '-1):\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name
             block += ' = '
             block += var_name
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile
             block += '\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name_while
             block += ' = '
             block += var_name_while
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile sentinella del while
             block += '\n'
         else:
             # v1 = v2 {+,-} v3
@@ -213,17 +218,17 @@ def generate_sum_sub_var_var_var(operators):
             block += '<'
             block += term
             block += '):\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name
             block += ' = '
             block += var_name
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile
             block += '\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name_while
             block += ' = '
             block += var_name_while
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile sentinella del while
             block += '\n'
 
     return block
@@ -239,7 +244,7 @@ def generate_sum_sub_var_var_num(operators):
     """
     # var = var {+,-} num
 
-    # get indentation
+    # prendo l'indentazione
     indentation = operators['indentation']
 
     # get variable name
@@ -264,12 +269,12 @@ def generate_sum_sub_var_var_num(operators):
             block += str(term)
             block += '):\n'
 
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
 
             block += var_name
             block += ' = '
             block += var_name
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile
             block += '\n'
         else:
             # v1 = v2 {+,-} num
@@ -289,12 +294,12 @@ def generate_sum_sub_var_var_num(operators):
             block += str(term) #MODIFICATO! Tolto il '-1'
             block += '):\n'
 
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
 
             block += var_name
             block += ' = '
             block += var_name
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile
             block += '\n'
 
     else:
@@ -312,17 +317,17 @@ def generate_sum_sub_var_var_num(operators):
             block += '<'
             block += str(term) #MODIFICATO! Tolto il '-1'
             block += '):\n'
-            block += ' ' * (indentation + utils.SPACE_NUM)
+            block += ' ' * (indentation + utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name
             block += ' = '
             block += var_name
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile
             block += '\n'
-            block += ' ' * (indentation + utils.SPACE_NUM)
+            block += ' ' * (indentation + utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name_while
             block += ' = '
             block += var_name_while
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile sentinella del while
             block += '\n'
         else:
             # v1 = v2 {+,-} num
@@ -342,17 +347,17 @@ def generate_sum_sub_var_var_num(operators):
             block += '<'
             block += str(term) #MODIFICATO! Tolto il '-1'
             block += '):\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name
             block += ' = '
             block += var_name
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile
             block += '\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
-            block += var_name_while
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
+            block += var_name_while 
             block += ' = '
             block += var_name_while
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile sentinella del while
             block += '\n'
 
     return block
@@ -383,7 +388,7 @@ def generate_mult_var_var_var(operators):
     """
     # var = var * var
 
-    # get indentation
+    # prendo l'indentazione
     indentation = operators['indentation']
 
     # get variable name
@@ -412,7 +417,7 @@ def generate_mult_var_var_var(operators):
             block += term
             block += '-1):\n'
 
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
 
             block += var_name
             block += ' = '
@@ -435,7 +440,7 @@ def generate_mult_var_var_var(operators):
             block += term
             block += '):\n'
 
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
 
             block += var_name
             block += ' = '
@@ -463,17 +468,17 @@ def generate_mult_var_var_var(operators):
             block += '<'
             block += term
             block += '-1):\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name
             block += ' = '
             block += var_name
-            block += ' + var_base'
+            block += ' + var_base' #incremento la variabile
             block += '\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name_while
             block += ' = '
             block += var_name_while
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile sentinella del while
             block += '\n'
         else:
             # v1 = v2 * v3
@@ -491,18 +496,18 @@ def generate_mult_var_var_var(operators):
             block += '<'
             block += term
             block += '):\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name
             block += ' = '
             block += var_name
             block += ' + '
-            block += operators['second']
+            block += operators['second'] #incremento la variabile 
             block += '\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name_while
             block += ' = '
             block += var_name_while
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile sentinella del while
             block += '\n'
 
     return block
@@ -518,7 +523,7 @@ def generate_mult_var_var_num(operators):
     """
     # var = var * num
 
-    # get indentation
+    # prendo l'indentazione
     indentation = operators['indentation']
 
     # get variable name
@@ -547,7 +552,7 @@ def generate_mult_var_var_num(operators):
             block += str(term-1)
             block += '):\n'
 
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
 
             block += var_name
             block += ' = '
@@ -570,7 +575,7 @@ def generate_mult_var_var_num(operators):
             block += str(term)
             block += '):\n'
 
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
 
             block += var_name
             block += ' = '
@@ -598,17 +603,17 @@ def generate_mult_var_var_num(operators):
             block += '<'
             block += str(term-1)
             block += '):\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name
             block += ' = '
-            block += var_name
-            block += ' + var_base'
+            block += var_name 
+            block += ' + var_base' #incremento la variabile
             block += '\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name_while
             block += ' = '
             block += var_name_while
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile sentinella del while
             block += '\n'
         else:
             # v1 = v2 * num
@@ -626,18 +631,18 @@ def generate_mult_var_var_num(operators):
             block += '<'
             block += str(term)
             block += '):\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name
             block += ' = '
             block += var_name
             block += ' + '
-            block += operators['second']
+            block += operators['second'] #incremento la variabile
             block += '\n'
-            block += ' ' * (indentation +  utils.SPACE_NUM)
+            block += ' ' * (indentation +  utils.SPACE_NUM) #dentro al while metto un'identazione in più!
             block += var_name_while
             block += ' = '
             block += var_name_while
-            block += ' + 1'
+            block += ' + 1' #incremento la variabile sentinella del while
             block += '\n'
 
     return block
@@ -668,16 +673,18 @@ def generate_div_var_var_var(operators):
     """
     # var1 = var2 / var3
 
-    # get indentation
+    # prendo l'indentazione
     indentation = operators['indentation']
 
-    # get var name of quotient, dividend and divisor
+    # prendo secondo il nome e la posizione i vari valori della divisione
     quotient = operators['first']
     dividend = operators['second']
     divisor = operators['third']
 
-    rand_factor = random.randint(1,1000)
+    rand_factor = random.randint(1,1000) # valore generato random per il prodotto
 
+    # qui viene fatta la nuova divisione: sia il numeratore e sia il denominatore sono moltiplicati per lo stesso valore
+    # di fatto il risultato non cambia, ma aggiunge complessità nel calcolo e nella visione del numero con R.E.
     block = ' ' * indentation
     block += quotient
     block += ' = '
@@ -702,17 +709,17 @@ def generate_div_var_var_num(operators):
     :return: A string as the new block of instructions.
     """
 
-    # get indentation
+    # perndo l'intentazione
     indentation = operators['indentation']
 
-    # get var name of quotient, dividend and divisor
+    # prendo secondo il nome e la posizione i vari valori della divisione
     quotient = operators['first']
     dividend = operators['second']
     divisor = int(operators['third'])
 
-    rand_factor = random.randint(1,1000)
+    rand_factor = random.randint(1,1000) # valore generato random per il prodotto
 
-    divisor *= rand_factor
+    #divisor *= rand_factor
 
     block = ' ' * indentation
     block += str(quotient)
@@ -722,6 +729,8 @@ def generate_div_var_var_num(operators):
     block += str(rand_factor)
     block += ' / '
     block += str(divisor)
+    block += ' * '
+    block += str(rand_factor)
     block += '\n'
 
     return block
@@ -748,7 +757,7 @@ def short_to_long(tokens):
     :return: A string as the new format instruction.
     """
     # from: var1 += var2
-    # to: var1 = var1 + var
+    # to: var1 = var1 + var2
 
     var1 = tokens[0][1]
     var2 = tokens[2][1]
