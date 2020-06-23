@@ -28,6 +28,7 @@ def main(argv):
         raise IOError( 'Error: invalid use. Please use : "python3.6 pythonCowObfuscator.py <source.py>" ' )
 
     source = arg[0] #Nome del file passato
+    #key = arg[1] #chiave per offuscare (inserire il Dead Code in modo tale da fare un Watermark)
 
     #check se il file è un file .py 
     extension = os.path.splitext(source)[1]  #take extension of file
@@ -66,7 +67,6 @@ def main(argv):
     cfg = CFGBuilder().build_from_file('After_Change_Sequence', './result/result1.py')
     a = cfg.build_visual('CFG/3)After_Change_Sequence', format='pdf', calls=True)
 
-
     # 3) replace constants
     source = './result/result1.py'
     with open('./result/result2.py', 'w') as res:
@@ -74,20 +74,10 @@ def main(argv):
             res.write(line)
 
     # 3.1) create cfg
-    cfg = CFGBuilder().build_from_file('After_Gen_Sequence', './result/result2.py')
-    a = cfg.build_visual('CFG/4)After_Gen_Sequence', format='pdf', calls=True)
+    cfg = CFGBuilder().build_from_file('After_Replace_Constants', './result/result2.py')
+    a = cfg.build_visual('CFG/4)After_Replace_Constants', format='pdf', calls=True)
 
-    '''Test del tempo di esecuzione'''
-    start_time = time.time() #faccio partire il cronometro
-    os.system('python ' + arg[0]) #faccio partire il programma
-    print("Tempo trascorso del file iniziale: %s" % (time.time() - start_time))
-
-    start_time = time.time() #faccio partire il cronometro
-    os.system('chmod 777 ./result/result2.py') #faccio partire il programma
-    os.system('python ./result/result2.py' )
-    print("Tempo trascorso del file offuscato: %s" % (time.time() - start_time))
-
-    '''
+    
     # 4) replace variables
     source = './result/result2.py'
     with open('./result/result3.py', 'w') as res:
@@ -95,6 +85,21 @@ def main(argv):
         for line in lines:
             res.write(line)
 
+    # 4.1) create cfg
+    cfg = CFGBuilder().build_from_file('After_Replace_Variables', './result/result3.py')
+    a = cfg.build_visual('CFG/5)After_Replace_Variables', format='pdf', calls=True)
+
+    '''Test del tempo di esecuzione'''
+    start_time = time.time() #faccio partire il cronometro
+    os.system('python ' + arg[0]) #faccio partire il programma
+    print("Tempo trascorso del file iniziale: %s" % (time.time() - start_time))
+
+    start_time = time.time() #faccio partire il cronometro
+    os.system('chmod 777 ./result/result3.py') #faccio partire il programma
+    os.system('python ./result/result3.py' )
+    print("Tempo trascorso del file offuscato: %s" % (time.time() - start_time))
+
+    '''
     # 5) replace function
     source = './result/result3.py'
     with open('./result/obfuscated.py', 'w') as res:
