@@ -1,19 +1,14 @@
-from random import randint
+from random import randint #per fare la scelta random, tipo lancio di moneta
 
 
-__author__ = "Ceoletta Valentina, Zanotti Mattia, Zenari Nicolo"
-__version__ = '1.0'
-__email__ = "{valentina.ceoletta, mattia.zanotti, nicolo.zenari}@studenti.univr.it"
-
-
-def length():
+def length(): #per la lunghezza della nuova variabile o funzione (per il nome inteso)
     """
     Returns a random integer used as length for the key name.
     """
     return randint(5,20)
 
 
-def cap_letter():
+def cap_letter(): #per le lettere in uppercase
     """
     Random generator for uppercase letter (M,O).
     """
@@ -23,7 +18,7 @@ def cap_letter():
         return 'O'
 
 
-def low_letter():
+def low_letter(): #per le lettere il lowercase
     """
     Random generator for lowercase letter (m,o).
     """
@@ -33,7 +28,7 @@ def low_letter():
         return 'o'
 
 
-def choice_letter():
+def choice_letter(): #sceglie una lettera a casa 
     """
     Random generator for choosing the next letter.
     """
@@ -43,7 +38,7 @@ def choice_letter():
         return low_letter()
 
 
-def generate():
+def generate(): #genera un nuovo nome di variabile/funzione in modo random
     """
     Generates a new variable/function name.
     """
