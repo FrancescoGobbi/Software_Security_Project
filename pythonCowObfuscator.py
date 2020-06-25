@@ -78,16 +78,28 @@ def main(argv):
     a = cfg.build_visual('CFG/4)After_Replace_Constants', format='pdf', calls=True)
 
     
-    # 4) replace variables
+    # 4) replace variables (nomi di variabili e nomi di funzioni con nomi a caso)
     source = './result/result2.py'
     with open('./result/result3.py', 'w') as res:
-        lines,dic = ov.obfuscate(source)
+        lines,dic = ov.obfuscate(source) #ritorna anche il dizionario delle variabile da cui fare il replace
         for line in lines:
             res.write(line)
 
     # 4.1) create cfg
     cfg = CFGBuilder().build_from_file('After_Replace_Variables', './result/result3.py')
     a = cfg.build_visual('CFG/5)After_Replace_Variables', format='pdf', calls=True)
+
+    
+    # 5) replace function
+    source = './result/result3.py'
+    with open('./result/obfuscated.py', 'w') as res: #obfuscated.py è il file finale obfuscato
+        for line in of.obfuscate(source, dic): #da anche il dizionario delle variabile da cui fare il replace
+            #in questo caso interesseranno solo i nomi delle funzioni
+            res.write(line)
+
+    # 5.1) create cfg
+    cfg = CFGBuilder().build_from_file('After_Replace_Function', './result/obfuscated.py')
+    a = cfg.build_visual('CFG/6)After_Replace_Function', format='pdf', calls=True)
 
     '''Test del tempo di esecuzione'''
     start_time = time.time() #faccio partire il cronometro
@@ -99,13 +111,7 @@ def main(argv):
     os.system('python ./result/result3.py' )
     print("Tempo trascorso del file offuscato: %s" % (time.time() - start_time))
 
-    '''
-    # 5) replace function
-    source = './result/result3.py'
-    with open('./result/obfuscated.py', 'w') as res:
-        for line in of.obfuscate(source, dic):
-            res.write(line)'''
-
 
 if __name__ == '__main__':
     main(sys.argv[1:]) #passiamo la riga di comando eseguita
+    
