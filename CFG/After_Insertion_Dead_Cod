@@ -1,0 +1,273 @@
+digraph clusterAfter_Insertion_Dead_Code {
+	graph [label=After_Insertion_Dead_Code]
+	1 [label="def PromessiSposi(x, y):...
+def Università(Indirizzo):...
+def William(Romeo, Giulietta):...
+Sicurezza = 10
+Visual = 10
+Embedded = 10
+Univr = 10
+Didattica = 10
+Progetto = 10
+Riccardo = 10
+Francesco = 10
+Giulietta = 10
+Romeo = 10
+Montecchi = 10
+Balcone = 0
+Riccardo = 5
+Francesco = 3
+i = 0
+"]
+	21 [label="while i < Riccardo:
+"]
+	22 [label="Francesco = Francesco + 1
+i = i + 1
+"]
+	22 -> 21 [label=""]
+	21 -> 22 [label="i < Riccardo"]
+	23 [label="Riccardo += 5
+if Balcone == 1:
+"]
+	24 [label="Giulietta = 0
+"]
+	25 [label="def fib():...
+if Romeo > Giulietta:
+"]
+	34 [label="PromessiSposi(Giulietta, Romeo)
+"]
+	"34_calls" [label=PromessiSposi shape=box]
+	34 -> "34_calls" [label=calls style=dashed]
+	35 [label="if Romeo > Giulietta:
+"]
+	37 [label="PromessiSposi(Giulietta, Romeo)
+"]
+	"37_calls" [label=PromessiSposi shape=box]
+	37 -> "37_calls" [label=calls style=dashed]
+	38 [label="if Sicurezza > Embedded:
+"]
+	40 [label="Univr = Univr + 3
+"]
+	41 [label="if Balcone == 1:
+"]
+	43 [label="Giulietta = 0
+"]
+	44 [label="if Sicurezza > Embedded:
+"]
+	46 [label="Univr = Univr + 3
+"]
+	47 [label="if Univr >= 10:
+"]
+	49 [label="if Embedded >= 5:
+"]
+	51 [label="Univr = Univr + 1
+"]
+	50 [label="if Montecchi > 10:
+"]
+	54 [label="Romeo = 0
+"]
+	55 [label="UniVr = 10
+Didattica = 5
+Progetto = 0
+if UniVr >= Didattica:
+"]
+	57 [label="if Riccardo > Francesco:
+"]
+	60 [label="if Romeo > Giulietta:
+"]
+	63 [label="Progetto = 1
+"]
+	58 [label="Università(Sicurezza)
+if Univr >= 10:
+"]
+	"58_calls" [label="Università" shape=box]
+	58 -> "58_calls" [label=calls style=dashed]
+	66 [label="Sicurezza = Sicurezza + 1
+Embedded = Embedded + 1
+Visual = Visual + 1
+"]
+	67 [label="def qualcosa(n):...
+fib_gen = fib()
+UniVr = 10
+Didattica = 5
+Progetto = 0
+if UniVr >= Didattica:
+"]
+	"67_calls" [label=fib shape=box]
+	67 -> "67_calls" [label=calls style=dashed]
+	78 [label="if Riccardo > Francesco:
+"]
+	81 [label="if Romeo > Giulietta:
+"]
+	84 [label="Progetto = 1
+"]
+	79 [label="for _ in range(10):
+"]
+	87 [label="next(fib_gen)
+"]
+	"87_calls" [label=next shape=box]
+	87 -> "87_calls" [label=calls style=dashed]
+	87 -> 79 [label=""]
+	79 -> 87 [label="range(10)"]
+	84 -> 79 [label=""]
+	81 -> 84 [label="Romeo > Giulietta"]
+	86 [label="Progetto = 2
+"]
+	86 -> 79 [label=""]
+	81 -> 86 [label="(Romeo <= Giulietta)"]
+	78 -> 81 [label="Riccardo > Francesco"]
+	83 [label="Progetto = 3
+"]
+	83 -> 79 [label=""]
+	78 -> 83 [label="(Riccardo <= Francesco)"]
+	67 -> 78 [label="UniVr >= Didattica"]
+	80 [label="Progetto = 4
+"]
+	80 -> 79 [label=""]
+	67 -> 80 [label="(UniVr < Didattica)"]
+	66 -> 67 [label=""]
+	58 -> 66 [label="Univr >= 10"]
+	58 -> 67 [label="(Univr < 10)"]
+	63 -> 58 [label=""]
+	60 -> 63 [label="Romeo > Giulietta"]
+	65 [label="Progetto = 2
+"]
+	65 -> 58 [label=""]
+	60 -> 65 [label="(Romeo <= Giulietta)"]
+	57 -> 60 [label="Riccardo > Francesco"]
+	62 [label="Progetto = 3
+"]
+	62 -> 58 [label=""]
+	57 -> 62 [label="(Riccardo <= Francesco)"]
+	55 -> 57 [label="UniVr >= Didattica"]
+	59 [label="Progetto = 4
+"]
+	59 -> 58 [label=""]
+	55 -> 59 [label="(UniVr < Didattica)"]
+	54 -> 55 [label=""]
+	50 -> 54 [label="Montecchi > 10"]
+	56 [label="Romeo = 20
+"]
+	56 -> 55 [label=""]
+	50 -> 56 [label="(Montecchi <= 10)"]
+	51 -> 50 [label=""]
+	49 -> 51 [label="Embedded >= 5"]
+	53 [label="Univr = Univr - 2
+"]
+	53 -> 50 [label=""]
+	49 -> 53 [label="(Embedded < 5)"]
+	47 -> 49 [label="Univr >= 10"]
+	47 -> 50 [label="(Univr < 10)"]
+	46 -> 47 [label=""]
+	44 -> 46 [label="Sicurezza > Embedded"]
+	48 [label="Univr = Univr - 10
+"]
+	48 -> 47 [label=""]
+	44 -> 48 [label="(Sicurezza <= Embedded)"]
+	43 -> 44 [label=""]
+	41 -> 43 [label="Balcone == 1"]
+	45 [label="Giulietta = 20
+"]
+	45 -> 44 [label=""]
+	41 -> 45 [label="(Balcone != 1)"]
+	40 -> 41 [label=""]
+	38 -> 40 [label="Sicurezza > Embedded"]
+	42 [label="Univr = Univr - 10
+"]
+	42 -> 41 [label=""]
+	38 -> 42 [label="(Sicurezza <= Embedded)"]
+	37 -> 38 [label=""]
+	35 -> 37 [label="Romeo > Giulietta"]
+	39 [label="William(Romeo, Giulietta)
+"]
+	"39_calls" [label=William shape=box]
+	39 -> "39_calls" [label=calls style=dashed]
+	39 -> 38 [label=""]
+	35 -> 39 [label="(Romeo <= Giulietta)"]
+	34 -> 35 [label=""]
+	25 -> 34 [label="Romeo > Giulietta"]
+	36 [label="William(Romeo, Giulietta)
+"]
+	"36_calls" [label=William shape=box]
+	36 -> "36_calls" [label=calls style=dashed]
+	36 -> 35 [label=""]
+	25 -> 36 [label="(Romeo <= Giulietta)"]
+	24 -> 25 [label=""]
+	23 -> 24 [label="Balcone == 1"]
+	26 [label="Giulietta = 20
+"]
+	26 -> 25 [label=""]
+	23 -> 26 [label="(Balcone != 1)"]
+	21 -> 23 [label="(i >= Riccardo)"]
+	1 -> 21 [label=""]
+	subgraph clusterPromessiSposi {
+		graph [label=PromessiSposi]
+		3 [label="while x > y:
+"]
+		4 [label="y = y + 1
+"]
+		4 -> 3 [label=""]
+		3 -> 4 [label="x > y"]
+		5 [label="if y > x:
+"]
+		6 [label="x = x + 5
+y = y + 5
+"]
+		5 -> 6 [label="y > x"]
+		3 -> 5 [label="(x <= y)"]
+	}
+	subgraph "clusterUniversità" {
+		graph [label="Università"]
+		10 [label="if Indirizzo >= 10:
+"]
+		11 [label="Indirizzo = Indirizzo + 10
+"]
+		10 -> 11 [label="Indirizzo >= 10"]
+		13 [label="Indirizzo = Indirizzo + 2
+"]
+		10 -> 13 [label="(Indirizzo < 10)"]
+	}
+	subgraph clusterWilliam {
+		graph [label=William]
+		16 [label="if Romeo > Giulietta:
+"]
+		17 [label="Giulietta = Giulietta + 5
+"]
+		16 -> 17 [label="Romeo > Giulietta"]
+		19 [label="Romeo = Romeo + 5
+"]
+		16 -> 19 [label="(Romeo <= Giulietta)"]
+	}
+	subgraph clusterfib {
+		graph [label=fib]
+		28 [label="a, b = 0, 1
+"]
+		29 [label="while True:
+"]
+		30 [label="yield a
+"]
+		32 [label="a, b = b, a + b
+"]
+		32 -> 29 [label=""]
+		30 -> 32 [label=""]
+		29 -> 30 [label=True]
+		28 -> 29 [label=""]
+	}
+	subgraph clusterqualcosa {
+		graph [label=qualcosa]
+		69 [label="if n == 1:
+"]
+		70 [label="return 1
+"]
+		69 -> 70 [label="n == 1"]
+		71 [label="if n == 2:
+"]
+		73 [label="return 1
+"]
+		71 -> 73 [label="n == 2"]
+		74 [label="return qualcosa(n - 1) + qualcosa(n - 2)
+"]
+		71 -> 74 [label="(n != 2)"]
+		69 -> 71 [label="(n != 1)"]
+	}
+}

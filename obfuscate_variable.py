@@ -1,7 +1,7 @@
 import tokenizer
 from generate_replacement import generate
 import token
-import re
+import re #per le ReGeX
 
 """ Dictionary of regex pattern """
 pattern_search = { 'if_pat': '\s*if\s*\w+',
@@ -41,7 +41,7 @@ def obfuscate(source): #prima funzione chiamata da pythonCowObfuscator()
         for pattern in pattern_search.values(): #scorro i pattern che desidero trovare con le ReGeX
             match = re.search(pattern, line) #faccio il match tra line e pattern (ovvero la ReGeX)
             if match: #se ho il match
-                search_variable_to_replace(line) #cerco la 
+                search_variable_to_replace(line) 
     lines = replace(lines) #sostituisco le vecchie variabili con quelle nuove, lo fa per tutto il file, quindi per tutte le righe del file
     return (lines, replacement_dic)
 
@@ -109,9 +109,13 @@ def search_variable_to_replace(line):
             import_list.append(token_line[ind+1][1])
 
         if old not in replacement_dic.keys() and not old == '': #se old non è già presente nel dizionario di quello che si deve sostituire
-            replace = generate() #genero un nome di una funziomne a caso
-            while replace in replacement_dic.values(): #nel caso in cui creo un nome di una variabile già presente
-                replace = generate() #genero un nome di una funziomne a caso
+            replace = generate() #genero un nome di una funziomne a caso 
+            
+            # Non seve il controllo se un nuovo nome di variabile esiste o meno, siamo sicuri che sia univoco
+            # per il discorso di probabilità
+            #while replace in replacement_dic.values(): #nel caso in cui creo un nome di una variabile già presente
+            #    replace = generate() #genero un nome di una funziomne a caso
+            
             replacement_dic[old] = replace #cambio il vecchio nome della funzione con quello nuovo!
 
 

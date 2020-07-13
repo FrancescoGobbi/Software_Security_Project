@@ -1,14 +1,8 @@
 import tokenize
 import io
 
-
-__author__ = "Ceoletta Valentina, Zanotti Mattia, Zenari Nicolo"
-__version__ = '1.0'
-__email__ = "{valentina.ceoletta, mattia.zanotti, nicolo.zenari}@studenti.univr.it"
-
-
 def tokenize_line(line):
-    return [list(a) for a in tokenize.generate_tokens(io.StringIO(line).readline)]
+    return [list(a) for a in tokenize.generate_tokens(io.StringIO(line).readline)] #SBAGLIATO IN CERTI CASI
 
 
 def untokenize_line(tokens):

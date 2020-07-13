@@ -45,8 +45,12 @@ def search_function_to_replace(line,dictionary):
         replace = generate() #genero un nuovo nuìome per la funzione (generate() in generate_replacement.py)
         if replace not in dictionary.values() and old not in replacement_dic.keys() and not old == '': #se questo nome non è 
             #già nel dizionario e non è quello che si vuole cambiare 
-            while replace in replacement_dic.values(): #se il nuovo nome è già presente nel dizionario dei nomi delle funzioni
-                replace = generate() #nel caso, genero un altro nome random
+
+            # Non seve il controllo se un nuovo nome di variabile esiste o meno, siamo sicuri che sia univoco
+            # per il discorso di probabilità
+            #while replace in replacement_dic.values(): #se il nuovo nome è già presente nel dizionario dei nomi delle funzioni
+            #    replace = generate() #nel caso, genero un altro nome random
+
             replacement_dic[old] = replace #sostituisco all'indice dell'old il nuovo nome della funzione
 
 

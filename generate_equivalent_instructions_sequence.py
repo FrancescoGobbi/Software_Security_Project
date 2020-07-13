@@ -17,6 +17,7 @@ def replace_instructions(source): #Parte chiamata dal codice
     lines = tokenizer.tokenize_file(source) #nel file "tokenizer.py", read una line nel file source (in questo caso l'output.py)
     for index, line in enumerate(lines):
         line_tokenized = tokenizer.tokenize_line(line) #line_tokenized è una lista di stringhe
+        #print(line_tokenized)
         line_to_replace = line
 
         # short to long
@@ -25,6 +26,7 @@ def replace_instructions(source): #Parte chiamata dal codice
             line_to_replace = short_to_long(line_tokenized) # trasforma una line in cui vi è un'operazione dalla forma short
             # a quella long (esempio v+=1 --> v=v+1)
             line_tokenized = tokenizer.tokenize_line(line_to_replace)
+            #print(line_tokenized)
 
         # ricerca del pattern corret
         pattern = match_pattern(line_to_replace)

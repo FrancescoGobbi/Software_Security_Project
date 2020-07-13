@@ -1,0 +1,50 @@
+digraph clusterBefore_Obfuscate {
+	graph [label=Before_Obfuscate]
+	1 [label="def fib():...
+def qualcosa(n):...
+fib_gen = fib()
+"]
+	"1_calls" [label=fib shape=box]
+	1 -> "1_calls" [label=calls style=dashed]
+	19 [label="for _ in range(10):
+"]
+	20 [label="next(fib_gen)
+"]
+	"20_calls" [label=next shape=box]
+	20 -> "20_calls" [label=calls style=dashed]
+	20 -> 19 [label=""]
+	19 -> 20 [label="range(10)"]
+	1 -> 19 [label=""]
+	subgraph clusterfib {
+		graph [label=fib]
+		3 [label="a, b = 0, 1
+"]
+		4 [label="while True:
+"]
+		5 [label="yield a
+"]
+		7 [label="a, b = b, a + b
+"]
+		7 -> 4 [label=""]
+		5 -> 7 [label=""]
+		4 -> 5 [label=True]
+		3 -> 4 [label=""]
+	}
+	subgraph clusterqualcosa {
+		graph [label=qualcosa]
+		10 [label="if n == 1:
+"]
+		11 [label="return 1
+"]
+		10 -> 11 [label="n == 1"]
+		12 [label="if n == 2:
+"]
+		14 [label="return 1
+"]
+		12 -> 14 [label="n == 2"]
+		15 [label="return qualcosa(n - 1) + qualcosa(n - 2)
+"]
+		12 -> 15 [label="(n != 2)"]
+		10 -> 12 [label="(n != 1)"]
+	}
+}

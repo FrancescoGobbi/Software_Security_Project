@@ -1,0 +1,1041 @@
+digraph clusterAfter_Change_Sequence {
+	graph [label=After_Change_Sequence]
+	1 [label="def PromessiSposi(x, y):...
+def Università(Indirizzo):...
+def William(Romeo, Giulietta):...
+Sicurezza = 10
+Visual = 10
+Embedded = 10
+Univr = 10
+Didattica = 10
+Progetto = 10
+Riccardo = 10
+Francesco = 10
+Giulietta = 10
+Romeo = 10
+Montecchi = 10
+Balcone = 0
+def fib():...
+Riccardo = 5
+Francesco = 3
+i = 0
+"]
+	45 [label="while i < Riccardo:
+"]
+	46 [label="random_gen_29891 = 0
+"]
+	48 [label="while random_gen_29891 < 1:
+"]
+	49 [label="Francesco = Francesco + 1
+random_gen_29891 = random_gen_29891 + 1
+"]
+	49 -> 48 [label=""]
+	48 -> 49 [label="random_gen_29891 < 1"]
+	50 [label="random_gen_96342 = 0
+"]
+	51 [label="while random_gen_96342 < 1:
+"]
+	52 [label="i = i + 1
+random_gen_96342 = random_gen_96342 + 1
+"]
+	52 -> 51 [label=""]
+	51 -> 52 [label="random_gen_96342 < 1"]
+	51 -> 45 [label="(random_gen_96342 >= 1)"]
+	50 -> 51 [label=""]
+	48 -> 50 [label="(random_gen_29891 >= 1)"]
+	46 -> 48 [label=""]
+	45 -> 46 [label="i < Riccardo"]
+	47 [label="for random_gen_26072 in range(0, 5):
+"]
+	54 [label="Riccardo = Riccardo + 1
+"]
+	54 -> 47 [label=""]
+	47 -> 54 [label="range(0, 5)"]
+	55 [label="def qualcosa(n):...
+fib_gen = fib()
+"]
+	"55_calls" [label=fib shape=box]
+	55 -> "55_calls" [label=calls style=dashed]
+	66 [label="for _ in range(10):
+"]
+	67 [label="next(fib_gen)
+"]
+	"67_calls" [label=next shape=box]
+	67 -> "67_calls" [label=calls style=dashed]
+	67 -> 66 [label=""]
+	66 -> 67 [label="range(10)"]
+	68 [label="if Univr >= 10:
+"]
+	69 [label="if Visual >= 5:
+"]
+	71 [label="random_gen_15063 = 0
+"]
+	77 [label="while random_gen_15063 < 1:
+"]
+	78 [label="Univr = Univr + 1
+random_gen_15063 = random_gen_15063 + 1
+"]
+	78 -> 77 [label=""]
+	77 -> 78 [label="random_gen_15063 < 1"]
+	70 [label="if Balcone == 1:
+"]
+	80 [label="Giulietta = 0
+"]
+	81 [label="if Romeo > Giulietta:
+"]
+	83 [label="PromessiSposi(Giulietta, Romeo)
+"]
+	"83_calls" [label=PromessiSposi shape=box]
+	83 -> "83_calls" [label=calls style=dashed]
+	84 [label="if Univr >= 10:
+"]
+	86 [label="if Embedded >= 5:
+"]
+	88 [label="random_gen_73259 = 0
+"]
+	94 [label="while random_gen_73259 < 1:
+"]
+	95 [label="Univr = Univr + 1
+random_gen_73259 = random_gen_73259 + 1
+"]
+	95 -> 94 [label=""]
+	94 -> 95 [label="random_gen_73259 < 1"]
+	87 [label="if Sicurezza > Visual:
+"]
+	97 [label="for random_gen_93426 in range(0, 3):
+"]
+	103 [label="Univr = Univr + 1
+"]
+	103 -> 97 [label=""]
+	97 -> 103 [label="range(0, 3)"]
+	98 [label="if Univr >= 10:
+"]
+	105 [label="random_gen_47434 = 0
+"]
+	107 [label="while random_gen_47434 < 1:
+"]
+	108 [label="Sicurezza = Sicurezza + 1
+random_gen_47434 = random_gen_47434 + 1
+"]
+	108 -> 107 [label=""]
+	107 -> 108 [label="random_gen_47434 < 1"]
+	109 [label="random_gen_15938 = 0
+"]
+	110 [label="while random_gen_15938 < 3:
+"]
+	111 [label="Visual = Visual + 1
+random_gen_15938 = random_gen_15938 + 1
+"]
+	111 -> 110 [label=""]
+	110 -> 111 [label="random_gen_15938 < 3"]
+	112 [label="for random_gen_13007 in range(0, 3):
+"]
+	113 [label="Embedded = Embedded + 1
+"]
+	113 -> 112 [label=""]
+	112 -> 113 [label="range(0, 3)"]
+	106 [label="if Univr >= 10:
+"]
+	115 [label="if Embedded >= 5:
+"]
+	117 [label="random_gen_17700 = 0
+"]
+	123 [label="while random_gen_17700 < 1:
+"]
+	124 [label="Univr = Univr + 1
+random_gen_17700 = random_gen_17700 + 1
+"]
+	124 -> 123 [label=""]
+	123 -> 124 [label="random_gen_17700 < 1"]
+	116 [label="if Univr >= 10:
+"]
+	126 [label="if Embedded >= 5:
+"]
+	128 [label="random_gen_87716 = 0
+"]
+	133 [label="while random_gen_87716 < 1:
+"]
+	134 [label="Univr = Univr + 1
+random_gen_87716 = random_gen_87716 + 1
+"]
+	134 -> 133 [label=""]
+	133 -> 134 [label="random_gen_87716 < 1"]
+	127 [label="if Univr >= 10:
+"]
+	136 [label="if Sicurezza >= 5:
+"]
+	138 [label="for random_gen_61411 in range(0, 1):
+"]
+	144 [label="Univr = Univr + 1
+"]
+	144 -> 138 [label=""]
+	138 -> 144 [label="range(0, 1)"]
+	137 [label="if Sicurezza > Embedded:
+"]
+	146 [label="random_gen_62963 = 0
+"]
+	152 [label="while random_gen_62963 < 3:
+"]
+	153 [label="Univr = Univr + 1
+random_gen_62963 = random_gen_62963 + 1
+"]
+	153 -> 152 [label=""]
+	152 -> 153 [label="random_gen_62963 < 3"]
+	147 [label="Università(Sicurezza)
+if Univr >= 10:
+"]
+	"147_calls" [label="Università" shape=box]
+	147 -> "147_calls" [label=calls style=dashed]
+	155 [label="random_gen_1492 = 0
+"]
+	157 [label="while random_gen_1492 < 1:
+"]
+	158 [label="Sicurezza = Sicurezza + 1
+random_gen_1492 = random_gen_1492 + 1
+"]
+	158 -> 157 [label=""]
+	157 -> 158 [label="random_gen_1492 < 1"]
+	159 [label="random_gen_36825 = 0
+"]
+	160 [label="while random_gen_36825 < 1:
+"]
+	161 [label="Embedded = Embedded + 1
+random_gen_36825 = random_gen_36825 + 1
+"]
+	161 -> 160 [label=""]
+	160 -> 161 [label="random_gen_36825 < 1"]
+	162 [label="for random_gen_29157 in range(0, 1):
+"]
+	163 [label="Visual = Visual + 1
+"]
+	163 -> 162 [label=""]
+	162 -> 163 [label="range(0, 1)"]
+	156 [label="if Univr >= 10:
+"]
+	165 [label="if Sicurezza >= 5:
+"]
+	167 [label="for random_gen_89141 in range(0, 1):
+"]
+	173 [label="Univr = Univr + 1
+"]
+	173 -> 167 [label=""]
+	167 -> 173 [label="range(0, 1)"]
+	166 [label="if Univr >= 10:
+"]
+	175 [label="if Embedded >= 5:
+"]
+	177 [label="for random_gen_40895 in range(0, 1):
+"]
+	182 [label="Univr = Univr + 1
+"]
+	182 -> 177 [label=""]
+	177 -> 182 [label="range(0, 1)"]
+	176 [label="UniVr = 10
+Didattica = 5
+Progetto = 0
+if UniVr >= Didattica:
+"]
+	184 [label="if Riccardo > Francesco:
+"]
+	187 [label="if Romeo > Giulietta:
+"]
+	190 [label="Progetto = 1
+"]
+	185 [label="if Univr >= 10:
+"]
+	193 [label="if Visual >= 5:
+"]
+	195 [label="random_gen_32058 = 0
+"]
+	201 [label="while random_gen_32058 < 1:
+"]
+	202 [label="Univr = Univr + 1
+random_gen_32058 = random_gen_32058 + 1
+"]
+	202 -> 201 [label=""]
+	201 -> 202 [label="random_gen_32058 < 1"]
+	194 [label="if Montecchi > 10:
+"]
+	204 [label="Romeo = 0
+"]
+	205 [label="if Riccardo >= Francesco:
+"]
+	207 [label="PromessiSposi(Riccardo, Francesco)
+"]
+	"207_calls" [label=PromessiSposi shape=box]
+	207 -> "207_calls" [label=calls style=dashed]
+	208 [label="if Montecchi > 10:
+"]
+	210 [label="Romeo = 0
+"]
+	211 [label="if Balcone == 1:
+"]
+	213 [label="Giulietta = 0
+"]
+	214 [label="if Sicurezza > Visual:
+"]
+	216 [label="for random_gen_18907 in range(0, 3):
+"]
+	222 [label="Univr = Univr + 1
+"]
+	222 -> 216 [label=""]
+	216 -> 222 [label="range(0, 3)"]
+	217 [label="if Univr >= 10:
+"]
+	224 [label="for random_gen_12723 in range(0, 1):
+"]
+	226 [label="Sicurezza = Sicurezza + 1
+"]
+	226 -> 224 [label=""]
+	224 -> 226 [label="range(0, 1)"]
+	227 [label="random_gen_86868 = 0
+"]
+	228 [label="while random_gen_86868 < 3:
+"]
+	229 [label="Visual = Visual + 1
+random_gen_86868 = random_gen_86868 + 1
+"]
+	229 -> 228 [label=""]
+	228 -> 229 [label="random_gen_86868 < 3"]
+	230 [label="for random_gen_75735 in range(0, 3):
+"]
+	231 [label="Embedded = Embedded + 1
+"]
+	231 -> 230 [label=""]
+	230 -> 231 [label="range(0, 3)"]
+	225 [label="if Riccardo >= Francesco:
+"]
+	233 [label="PromessiSposi(Riccardo, Francesco)
+"]
+	"233_calls" [label=PromessiSposi shape=box]
+	233 -> "233_calls" [label=calls style=dashed]
+	234 [label="UniVr = 10
+Didattica = 5
+Progetto = 0
+if UniVr >= Didattica:
+"]
+	236 [label="if Riccardo > Francesco:
+"]
+	239 [label="if Romeo > Giulietta:
+"]
+	242 [label="Progetto = 1
+"]
+	237 [label="if Sicurezza > Embedded:
+"]
+	245 [label="random_gen_10214 = 0
+"]
+	251 [label="while random_gen_10214 < 3:
+"]
+	252 [label="Univr = Univr + 1
+random_gen_10214 = random_gen_10214 + 1
+"]
+	252 -> 251 [label=""]
+	251 -> 252 [label="random_gen_10214 < 3"]
+	246 [label="if Balcone == 1:
+"]
+	254 [label="Romeo = 20
+"]
+	255 [label="Università(Sicurezza)
+if Univr >= 10:
+"]
+	"255_calls" [label="Università" shape=box]
+	255 -> "255_calls" [label=calls style=dashed]
+	257 [label="for random_gen_81385 in range(0, 1):
+"]
+	259 [label="Sicurezza = Sicurezza + 1
+"]
+	259 -> 257 [label=""]
+	257 -> 259 [label="range(0, 1)"]
+	260 [label="for random_gen_87970 in range(0, 1):
+"]
+	261 [label="Embedded = Embedded + 1
+"]
+	261 -> 260 [label=""]
+	260 -> 261 [label="range(0, 1)"]
+	262 [label="for random_gen_58056 in range(0, 1):
+"]
+	263 [label="Visual = Visual + 1
+"]
+	263 -> 262 [label=""]
+	262 -> 263 [label="range(0, 1)"]
+	258 [label="if Univr >= 10:
+"]
+	265 [label="if Sicurezza >= 5:
+"]
+	267 [label="random_gen_7539 = 0
+"]
+	273 [label="while random_gen_7539 < 1:
+"]
+	274 [label="Univr = Univr + 1
+random_gen_7539 = random_gen_7539 + 1
+"]
+	274 -> 273 [label=""]
+	273 -> 274 [label="random_gen_7539 < 1"]
+	266 [label="UniVr = 10
+Didattica = 5
+Progetto = 0
+if UniVr >= Didattica:
+"]
+	276 [label="if Riccardo > Francesco:
+"]
+	279 [label="if Romeo > Giulietta:
+"]
+	282 [label="Progetto = 1
+"]
+	277 [label="if Univr >= 10:
+"]
+	285 [label="if Embedded >= 5:
+"]
+	287 [label="for random_gen_37317 in range(0, 1):
+"]
+	292 [label="Univr = Univr + 1
+"]
+	292 -> 287 [label=""]
+	287 -> 292 [label="range(0, 1)"]
+	286 [label="if Univr >= 10:
+"]
+	294 [label="if Sicurezza >= 5:
+"]
+	296 [label="random_gen_11566 = 0
+"]
+	301 [label="while random_gen_11566 < 1:
+"]
+	302 [label="Univr = Univr + 1
+random_gen_11566 = random_gen_11566 + 1
+"]
+	302 -> 301 [label=""]
+	301 -> 302 [label="random_gen_11566 < 1"]
+	295 [label="if Montecchi >= 10:
+"]
+	304 [label="Romeo -= 2
+Giulietta -= 1
+"]
+	305 [label="if Balcone == 1:
+"]
+	307 [label="Giulietta = 0
+"]
+	308 [label="UniVr = 10
+Didattica = 5
+Progetto = 0
+if UniVr >= Didattica:
+"]
+	310 [label="if Riccardo > Francesco:
+"]
+	313 [label="if Romeo > Giulietta:
+"]
+	316 [label="Progetto = 1
+"]
+	311 [label="if Montecchi > 10:
+"]
+	319 [label="Romeo = 0
+"]
+	320 [label="if Balcone == 1:
+"]
+	322 [label="Giulietta = 0
+"]
+	323 [label="Università(Sicurezza)
+if Univr >= 10:
+"]
+	"323_calls" [label="Università" shape=box]
+	323 -> "323_calls" [label=calls style=dashed]
+	325 [label="for random_gen_8399 in range(0, 1):
+"]
+	327 [label="Sicurezza = Sicurezza + 1
+"]
+	327 -> 325 [label=""]
+	325 -> 327 [label="range(0, 1)"]
+	328 [label="random_gen_94439 = 0
+"]
+	329 [label="while random_gen_94439 < 1:
+"]
+	330 [label="Embedded = Embedded + 1
+random_gen_94439 = random_gen_94439 + 1
+"]
+	330 -> 329 [label=""]
+	329 -> 330 [label="random_gen_94439 < 1"]
+	331 [label="for random_gen_8288 in range(0, 1):
+"]
+	332 [label="Visual = Visual + 1
+"]
+	332 -> 331 [label=""]
+	331 -> 332 [label="range(0, 1)"]
+	326 [label="UniVr = 10
+Didattica = 5
+Progetto = 0
+if UniVr >= Didattica:
+"]
+	334 [label="if Riccardo > Francesco:
+"]
+	337 [label="if Romeo > Giulietta:
+"]
+	340 [label="Progetto = 1
+"]
+	335 [label="if Romeo > Giulietta:
+"]
+	343 [label="PromessiSposi(Giulietta, Romeo)
+"]
+	"343_calls" [label=PromessiSposi shape=box]
+	343 -> "343_calls" [label=calls style=dashed]
+	344 [label="if Sicurezza > Embedded:
+"]
+	346 [label="for random_gen_58682 in range(0, 3):
+"]
+	352 [label="Univr = Univr + 1
+"]
+	352 -> 346 [label=""]
+	346 -> 352 [label="range(0, 3)"]
+	344 -> 346 [label="Sicurezza > Embedded"]
+	348 [label="random_gen_82511 = 0
+"]
+	349 [label="while random_gen_82511 < 10:
+"]
+	350 [label="Univr = Univr + 1
+random_gen_82511 = random_gen_82511 + 1
+"]
+	350 -> 349 [label=""]
+	349 -> 350 [label="random_gen_82511 < 10"]
+	348 -> 349 [label=""]
+	344 -> 348 [label="(Sicurezza <= Embedded)"]
+	343 -> 344 [label=""]
+	335 -> 343 [label="Romeo > Giulietta"]
+	345 [label="William(Romeo, Giulietta)
+"]
+	"345_calls" [label=William shape=box]
+	345 -> "345_calls" [label=calls style=dashed]
+	345 -> 344 [label=""]
+	335 -> 345 [label="(Romeo <= Giulietta)"]
+	340 -> 335 [label=""]
+	337 -> 340 [label="Romeo > Giulietta"]
+	342 [label="Progetto = 2
+"]
+	342 -> 335 [label=""]
+	337 -> 342 [label="(Romeo <= Giulietta)"]
+	334 -> 337 [label="Riccardo > Francesco"]
+	339 [label="Progetto = 3
+"]
+	339 -> 335 [label=""]
+	334 -> 339 [label="(Riccardo <= Francesco)"]
+	326 -> 334 [label="UniVr >= Didattica"]
+	336 [label="Progetto = 4
+"]
+	336 -> 335 [label=""]
+	326 -> 336 [label="(UniVr < Didattica)"]
+	331 -> 326 [label=""]
+	329 -> 331 [label="(random_gen_94439 >= 1)"]
+	328 -> 329 [label=""]
+	325 -> 328 [label=""]
+	323 -> 325 [label="Univr >= 10"]
+	323 -> 326 [label="(Univr < 10)"]
+	322 -> 323 [label=""]
+	320 -> 322 [label="Balcone == 1"]
+	324 [label="Giulietta = 20
+"]
+	324 -> 323 [label=""]
+	320 -> 324 [label="(Balcone != 1)"]
+	319 -> 320 [label=""]
+	311 -> 319 [label="Montecchi > 10"]
+	321 [label="Romeo = 20
+"]
+	321 -> 320 [label=""]
+	311 -> 321 [label="(Montecchi <= 10)"]
+	316 -> 311 [label=""]
+	313 -> 316 [label="Romeo > Giulietta"]
+	318 [label="Progetto = 2
+"]
+	318 -> 311 [label=""]
+	313 -> 318 [label="(Romeo <= Giulietta)"]
+	310 -> 313 [label="Riccardo > Francesco"]
+	315 [label="Progetto = 3
+"]
+	315 -> 311 [label=""]
+	310 -> 315 [label="(Riccardo <= Francesco)"]
+	308 -> 310 [label="UniVr >= Didattica"]
+	312 [label="Progetto = 4
+"]
+	312 -> 311 [label=""]
+	308 -> 312 [label="(UniVr < Didattica)"]
+	307 -> 308 [label=""]
+	305 -> 307 [label="Balcone == 1"]
+	309 [label="Giulietta = 20
+"]
+	309 -> 308 [label=""]
+	305 -> 309 [label="(Balcone != 1)"]
+	304 -> 305 [label=""]
+	295 -> 304 [label="Montecchi >= 10"]
+	306 [label="Romeo += Giulietta
+"]
+	306 -> 305 [label=""]
+	295 -> 306 [label="(Montecchi < 10)"]
+	301 -> 295 [label="(random_gen_11566 >= 1)"]
+	296 -> 301 [label=""]
+	294 -> 296 [label="Sicurezza >= 5"]
+	298 [label="for random_gen_22126 in range(0, 2):
+"]
+	299 [label="Univr = Univr + 1
+"]
+	299 -> 298 [label=""]
+	298 -> 299 [label="range(0, 2)"]
+	298 -> 295 [label=""]
+	294 -> 298 [label="(Sicurezza < 5)"]
+	286 -> 294 [label="Univr >= 10"]
+	286 -> 295 [label="(Univr < 10)"]
+	287 -> 286 [label=""]
+	285 -> 287 [label="Embedded >= 5"]
+	289 [label="for random_gen_5663 in range(0, 2):
+"]
+	290 [label="Univr = Univr + 1
+"]
+	290 -> 289 [label=""]
+	289 -> 290 [label="range(0, 2)"]
+	289 -> 286 [label=""]
+	285 -> 289 [label="(Embedded < 5)"]
+	277 -> 285 [label="Univr >= 10"]
+	277 -> 286 [label="(Univr < 10)"]
+	282 -> 277 [label=""]
+	279 -> 282 [label="Romeo > Giulietta"]
+	284 [label="Progetto = 2
+"]
+	284 -> 277 [label=""]
+	279 -> 284 [label="(Romeo <= Giulietta)"]
+	276 -> 279 [label="Riccardo > Francesco"]
+	281 [label="Progetto = 3
+"]
+	281 -> 277 [label=""]
+	276 -> 281 [label="(Riccardo <= Francesco)"]
+	266 -> 276 [label="UniVr >= Didattica"]
+	278 [label="Progetto = 4
+"]
+	278 -> 277 [label=""]
+	266 -> 278 [label="(UniVr < Didattica)"]
+	273 -> 266 [label="(random_gen_7539 >= 1)"]
+	267 -> 273 [label=""]
+	265 -> 267 [label="Sicurezza >= 5"]
+	269 [label="random_gen_74224 = 0
+"]
+	270 [label="while random_gen_74224 < 2:
+"]
+	271 [label="Univr = Univr + 1
+random_gen_74224 = random_gen_74224 + 1
+"]
+	271 -> 270 [label=""]
+	270 -> 271 [label="random_gen_74224 < 2"]
+	270 -> 266 [label="(random_gen_74224 >= 2)"]
+	269 -> 270 [label=""]
+	265 -> 269 [label="(Sicurezza < 5)"]
+	258 -> 265 [label="Univr >= 10"]
+	258 -> 266 [label="(Univr < 10)"]
+	262 -> 258 [label=""]
+	260 -> 262 [label=""]
+	257 -> 260 [label=""]
+	255 -> 257 [label="Univr >= 10"]
+	255 -> 258 [label="(Univr < 10)"]
+	254 -> 255 [label=""]
+	246 -> 254 [label="Balcone == 1"]
+	256 [label="Romeo = 0
+"]
+	256 -> 255 [label=""]
+	246 -> 256 [label="(Balcone != 1)"]
+	251 -> 246 [label="(random_gen_10214 >= 3)"]
+	245 -> 251 [label=""]
+	237 -> 245 [label="Sicurezza > Embedded"]
+	247 [label="random_gen_30835 = 0
+"]
+	248 [label="while random_gen_30835 < 10:
+"]
+	249 [label="Univr = Univr + 1
+random_gen_30835 = random_gen_30835 + 1
+"]
+	249 -> 248 [label=""]
+	248 -> 249 [label="random_gen_30835 < 10"]
+	248 -> 246 [label="(random_gen_30835 >= 10)"]
+	247 -> 248 [label=""]
+	237 -> 247 [label="(Sicurezza <= Embedded)"]
+	242 -> 237 [label=""]
+	239 -> 242 [label="Romeo > Giulietta"]
+	244 [label="Progetto = 2
+"]
+	244 -> 237 [label=""]
+	239 -> 244 [label="(Romeo <= Giulietta)"]
+	236 -> 239 [label="Riccardo > Francesco"]
+	241 [label="Progetto = 3
+"]
+	241 -> 237 [label=""]
+	236 -> 241 [label="(Riccardo <= Francesco)"]
+	234 -> 236 [label="UniVr >= Didattica"]
+	238 [label="Progetto = 4
+"]
+	238 -> 237 [label=""]
+	234 -> 238 [label="(UniVr < Didattica)"]
+	233 -> 234 [label=""]
+	225 -> 233 [label="Riccardo >= Francesco"]
+	235 [label="PromessiSposi(Francesco, Riccardo)
+"]
+	"235_calls" [label=PromessiSposi shape=box]
+	235 -> "235_calls" [label=calls style=dashed]
+	235 -> 234 [label=""]
+	225 -> 235 [label="(Riccardo < Francesco)"]
+	230 -> 225 [label=""]
+	228 -> 230 [label="(random_gen_86868 >= 3)"]
+	227 -> 228 [label=""]
+	224 -> 227 [label=""]
+	217 -> 224 [label="Univr >= 10"]
+	217 -> 225 [label="(Univr < 10)"]
+	216 -> 217 [label=""]
+	214 -> 216 [label="Sicurezza > Visual"]
+	218 [label="Unvir = Univr
+random_gen_35435 = 0
+"]
+	219 [label="while random_gen_35435 < 5:
+"]
+	220 [label="Unvir = Unvir + 1
+random_gen_35435 = random_gen_35435 + 1
+"]
+	220 -> 219 [label=""]
+	219 -> 220 [label="random_gen_35435 < 5"]
+	219 -> 217 [label="(random_gen_35435 >= 5)"]
+	218 -> 219 [label=""]
+	214 -> 218 [label="(Sicurezza <= Visual)"]
+	213 -> 214 [label=""]
+	211 -> 213 [label="Balcone == 1"]
+	215 [label="Giulietta = 20
+"]
+	215 -> 214 [label=""]
+	211 -> 215 [label="(Balcone != 1)"]
+	210 -> 211 [label=""]
+	208 -> 210 [label="Montecchi > 10"]
+	212 [label="Romeo = 20
+"]
+	212 -> 211 [label=""]
+	208 -> 212 [label="(Montecchi <= 10)"]
+	207 -> 208 [label=""]
+	205 -> 207 [label="Riccardo >= Francesco"]
+	209 [label="PromessiSposi(Francesco, Riccardo)
+"]
+	"209_calls" [label=PromessiSposi shape=box]
+	209 -> "209_calls" [label=calls style=dashed]
+	209 -> 208 [label=""]
+	205 -> 209 [label="(Riccardo < Francesco)"]
+	204 -> 205 [label=""]
+	194 -> 204 [label="Montecchi > 10"]
+	206 [label="Romeo = 20
+"]
+	206 -> 205 [label=""]
+	194 -> 206 [label="(Montecchi <= 10)"]
+	201 -> 194 [label="(random_gen_32058 >= 1)"]
+	195 -> 201 [label=""]
+	193 -> 195 [label="Visual >= 5"]
+	197 [label="random_gen_41672 = 0
+"]
+	198 [label="while random_gen_41672 < 2:
+"]
+	199 [label="Univr = Univr + 1
+random_gen_41672 = random_gen_41672 + 1
+"]
+	199 -> 198 [label=""]
+	198 -> 199 [label="random_gen_41672 < 2"]
+	198 -> 194 [label="(random_gen_41672 >= 2)"]
+	197 -> 198 [label=""]
+	193 -> 197 [label="(Visual < 5)"]
+	185 -> 193 [label="Univr >= 10"]
+	185 -> 194 [label="(Univr < 10)"]
+	190 -> 185 [label=""]
+	187 -> 190 [label="Romeo > Giulietta"]
+	192 [label="Progetto = 2
+"]
+	192 -> 185 [label=""]
+	187 -> 192 [label="(Romeo <= Giulietta)"]
+	184 -> 187 [label="Riccardo > Francesco"]
+	189 [label="Progetto = 3
+"]
+	189 -> 185 [label=""]
+	184 -> 189 [label="(Riccardo <= Francesco)"]
+	176 -> 184 [label="UniVr >= Didattica"]
+	186 [label="Progetto = 4
+"]
+	186 -> 185 [label=""]
+	176 -> 186 [label="(UniVr < Didattica)"]
+	177 -> 176 [label=""]
+	175 -> 177 [label="Embedded >= 5"]
+	179 [label="for random_gen_4637 in range(0, 2):
+"]
+	180 [label="Univr = Univr + 1
+"]
+	180 -> 179 [label=""]
+	179 -> 180 [label="range(0, 2)"]
+	179 -> 176 [label=""]
+	175 -> 179 [label="(Embedded < 5)"]
+	166 -> 175 [label="Univr >= 10"]
+	166 -> 176 [label="(Univr < 10)"]
+	167 -> 166 [label=""]
+	165 -> 167 [label="Sicurezza >= 5"]
+	169 [label="random_gen_54784 = 0
+"]
+	170 [label="while random_gen_54784 < 2:
+"]
+	171 [label="Univr = Univr + 1
+random_gen_54784 = random_gen_54784 + 1
+"]
+	171 -> 170 [label=""]
+	170 -> 171 [label="random_gen_54784 < 2"]
+	170 -> 166 [label="(random_gen_54784 >= 2)"]
+	169 -> 170 [label=""]
+	165 -> 169 [label="(Sicurezza < 5)"]
+	156 -> 165 [label="Univr >= 10"]
+	156 -> 166 [label="(Univr < 10)"]
+	162 -> 156 [label=""]
+	160 -> 162 [label="(random_gen_36825 >= 1)"]
+	159 -> 160 [label=""]
+	157 -> 159 [label="(random_gen_1492 >= 1)"]
+	155 -> 157 [label=""]
+	147 -> 155 [label="Univr >= 10"]
+	147 -> 156 [label="(Univr < 10)"]
+	152 -> 147 [label="(random_gen_62963 >= 3)"]
+	146 -> 152 [label=""]
+	137 -> 146 [label="Sicurezza > Embedded"]
+	148 [label="random_gen_883 = 0
+"]
+	149 [label="while random_gen_883 < 10:
+"]
+	150 [label="Univr = Univr + 1
+random_gen_883 = random_gen_883 + 1
+"]
+	150 -> 149 [label=""]
+	149 -> 150 [label="random_gen_883 < 10"]
+	149 -> 147 [label="(random_gen_883 >= 10)"]
+	148 -> 149 [label=""]
+	137 -> 148 [label="(Sicurezza <= Embedded)"]
+	138 -> 137 [label=""]
+	136 -> 138 [label="Sicurezza >= 5"]
+	140 [label="random_gen_45168 = 0
+"]
+	141 [label="while random_gen_45168 < 2:
+"]
+	142 [label="Univr = Univr + 1
+random_gen_45168 = random_gen_45168 + 1
+"]
+	142 -> 141 [label=""]
+	141 -> 142 [label="random_gen_45168 < 2"]
+	141 -> 137 [label="(random_gen_45168 >= 2)"]
+	140 -> 141 [label=""]
+	136 -> 140 [label="(Sicurezza < 5)"]
+	127 -> 136 [label="Univr >= 10"]
+	127 -> 137 [label="(Univr < 10)"]
+	133 -> 127 [label="(random_gen_87716 >= 1)"]
+	128 -> 133 [label=""]
+	126 -> 128 [label="Embedded >= 5"]
+	130 [label="for random_gen_53351 in range(0, 2):
+"]
+	131 [label="Univr = Univr + 1
+"]
+	131 -> 130 [label=""]
+	130 -> 131 [label="range(0, 2)"]
+	130 -> 127 [label=""]
+	126 -> 130 [label="(Embedded < 5)"]
+	116 -> 126 [label="Univr >= 10"]
+	116 -> 127 [label="(Univr < 10)"]
+	123 -> 116 [label="(random_gen_17700 >= 1)"]
+	117 -> 123 [label=""]
+	115 -> 117 [label="Embedded >= 5"]
+	119 [label="random_gen_2208 = 0
+"]
+	120 [label="while random_gen_2208 < 2:
+"]
+	121 [label="Univr = Univr + 1
+random_gen_2208 = random_gen_2208 + 1
+"]
+	121 -> 120 [label=""]
+	120 -> 121 [label="random_gen_2208 < 2"]
+	120 -> 116 [label="(random_gen_2208 >= 2)"]
+	119 -> 120 [label=""]
+	115 -> 119 [label="(Embedded < 5)"]
+	106 -> 115 [label="Univr >= 10"]
+	106 -> 116 [label="(Univr < 10)"]
+	112 -> 106 [label=""]
+	110 -> 112 [label="(random_gen_15938 >= 3)"]
+	109 -> 110 [label=""]
+	107 -> 109 [label="(random_gen_47434 >= 1)"]
+	105 -> 107 [label=""]
+	98 -> 105 [label="Univr >= 10"]
+	98 -> 106 [label="(Univr < 10)"]
+	97 -> 98 [label=""]
+	87 -> 97 [label="Sicurezza > Visual"]
+	99 [label="Unvir = Univr
+random_gen_67562 = 0
+"]
+	100 [label="while random_gen_67562 < 5:
+"]
+	101 [label="Unvir = Unvir + 1
+random_gen_67562 = random_gen_67562 + 1
+"]
+	101 -> 100 [label=""]
+	100 -> 101 [label="random_gen_67562 < 5"]
+	100 -> 98 [label="(random_gen_67562 >= 5)"]
+	99 -> 100 [label=""]
+	87 -> 99 [label="(Sicurezza <= Visual)"]
+	94 -> 87 [label="(random_gen_73259 >= 1)"]
+	88 -> 94 [label=""]
+	86 -> 88 [label="Embedded >= 5"]
+	90 [label="random_gen_59164 = 0
+"]
+	91 [label="while random_gen_59164 < 2:
+"]
+	92 [label="Univr = Univr + 1
+random_gen_59164 = random_gen_59164 + 1
+"]
+	92 -> 91 [label=""]
+	91 -> 92 [label="random_gen_59164 < 2"]
+	91 -> 87 [label="(random_gen_59164 >= 2)"]
+	90 -> 91 [label=""]
+	86 -> 90 [label="(Embedded < 5)"]
+	84 -> 86 [label="Univr >= 10"]
+	84 -> 87 [label="(Univr < 10)"]
+	83 -> 84 [label=""]
+	81 -> 83 [label="Romeo > Giulietta"]
+	85 [label="William(Romeo, Giulietta)
+"]
+	"85_calls" [label=William shape=box]
+	85 -> "85_calls" [label=calls style=dashed]
+	85 -> 84 [label=""]
+	81 -> 85 [label="(Romeo <= Giulietta)"]
+	80 -> 81 [label=""]
+	70 -> 80 [label="Balcone == 1"]
+	82 [label="Giulietta = 20
+"]
+	82 -> 81 [label=""]
+	70 -> 82 [label="(Balcone != 1)"]
+	77 -> 70 [label="(random_gen_15063 >= 1)"]
+	71 -> 77 [label=""]
+	69 -> 71 [label="Visual >= 5"]
+	73 [label="random_gen_65490 = 0
+"]
+	74 [label="while random_gen_65490 < 2:
+"]
+	75 [label="Univr = Univr + 1
+random_gen_65490 = random_gen_65490 + 1
+"]
+	75 -> 74 [label=""]
+	74 -> 75 [label="random_gen_65490 < 2"]
+	74 -> 70 [label="(random_gen_65490 >= 2)"]
+	73 -> 74 [label=""]
+	69 -> 73 [label="(Visual < 5)"]
+	68 -> 69 [label="Univr >= 10"]
+	68 -> 70 [label="(Univr < 10)"]
+	66 -> 68 [label=""]
+	55 -> 66 [label=""]
+	47 -> 55 [label=""]
+	45 -> 47 [label="(i >= Riccardo)"]
+	1 -> 45 [label=""]
+	subgraph clusterPromessiSposi {
+		graph [label=PromessiSposi]
+		3 [label="while x > y:
+"]
+		4 [label="random_gen_7424 = 0
+"]
+		6 [label="while random_gen_7424 < 1:
+"]
+		7 [label="y = y + 1
+random_gen_7424 = random_gen_7424 + 1
+"]
+		7 -> 6 [label=""]
+		6 -> 7 [label="random_gen_7424 < 1"]
+		6 -> 3 [label="(random_gen_7424 >= 1)"]
+		4 -> 6 [label=""]
+		3 -> 4 [label="x > y"]
+		5 [label="if y > x:
+"]
+		9 [label="for random_gen_54676 in range(0, 5):
+"]
+		11 [label="x = x + 1
+"]
+		11 -> 9 [label=""]
+		9 -> 11 [label="range(0, 5)"]
+		12 [label="for random_gen_52196 in range(0, 5):
+"]
+		13 [label="y = y + 1
+"]
+		13 -> 12 [label=""]
+		12 -> 13 [label="range(0, 5)"]
+		9 -> 12 [label=""]
+		5 -> 9 [label="y > x"]
+		3 -> 5 [label="(x <= y)"]
+	}
+	subgraph "clusterUniversità" {
+		graph [label="Università"]
+		17 [label="if Indirizzo >= 10:
+"]
+		18 [label="for random_gen_23847 in range(0, 10):
+"]
+		23 [label="Indirizzo = Indirizzo + 1
+"]
+		23 -> 18 [label=""]
+		18 -> 23 [label="range(0, 10)"]
+		17 -> 18 [label="Indirizzo >= 10"]
+		20 [label="for random_gen_26914 in range(0, 2):
+"]
+		21 [label="Indirizzo = Indirizzo + 1
+"]
+		21 -> 20 [label=""]
+		20 -> 21 [label="range(0, 2)"]
+		17 -> 20 [label="(Indirizzo < 10)"]
+	}
+	subgraph clusterWilliam {
+		graph [label=William]
+		27 [label="if Romeo > Giulietta:
+"]
+		28 [label="random_gen_70373 = 0
+"]
+		34 [label="while random_gen_70373 < 5:
+"]
+		35 [label="Giulietta = Giulietta + 1
+random_gen_70373 = random_gen_70373 + 1
+"]
+		35 -> 34 [label=""]
+		34 -> 35 [label="random_gen_70373 < 5"]
+		28 -> 34 [label=""]
+		27 -> 28 [label="Romeo > Giulietta"]
+		30 [label="random_gen_47077 = 0
+"]
+		31 [label="while random_gen_47077 < 5:
+"]
+		32 [label="Romeo = Romeo + 1
+random_gen_47077 = random_gen_47077 + 1
+"]
+		32 -> 31 [label=""]
+		31 -> 32 [label="random_gen_47077 < 5"]
+		30 -> 31 [label=""]
+		27 -> 30 [label="(Romeo <= Giulietta)"]
+	}
+	subgraph clusterfib {
+		graph [label=fib]
+		39 [label="a = 0
+b = 1
+"]
+		40 [label="while True:
+"]
+		41 [label="yield a
+"]
+		43 [label="a, b = b, a + b
+"]
+		43 -> 40 [label=""]
+		41 -> 43 [label=""]
+		40 -> 41 [label=True]
+		39 -> 40 [label=""]
+	}
+	subgraph clusterqualcosa {
+		graph [label=qualcosa]
+		57 [label="if n == 1:
+"]
+		58 [label="return 1
+"]
+		57 -> 58 [label="n == 1"]
+		59 [label="if n == 2:
+"]
+		61 [label="return 1
+"]
+		59 -> 61 [label="n == 2"]
+		62 [label="return qualcosa(n - 1) + qualcosa(n - 2)
+"]
+		59 -> 62 [label="(n != 2)"]
+		57 -> 59 [label="(n != 1)"]
+	}
+}

@@ -8,6 +8,7 @@ import getopt
 import os
 import stat #per il chmod
 import time #per calcolare il tempo di ese
+import psutil #per la RAM usata
 from staticfg import CFGBuilder
 from fpdf import FPDF
 
@@ -38,7 +39,9 @@ def main(argv):
     
     #check il file è nella cartella
     if os.path.isfile(source):
+        print("-----------")
         print ("File exist")
+        print("-----------")
     else:
         raise IOError( 'File not exist' )
 
@@ -46,6 +49,11 @@ def main(argv):
     if not os.path.exists('result'):
         os.makedirs('result')
 
+    print('-----------------')
+    print('|               |')
+    print('|   Obfuscate   |')
+    print('|               |')
+    print('-----------------')
     # 0) create cfg
     cfg = CFGBuilder().build_from_file('Before_Obfuscate', source)
     a = cfg.build_visual('CFG/1)Before_Obfuscate', format='pdf', calls=True)
@@ -101,15 +109,21 @@ def main(argv):
     cfg = CFGBuilder().build_from_file('After_Replace_Function', './result/obfuscated.py')
     a = cfg.build_visual('CFG/6)After_Replace_Function', format='pdf', calls=True)
 
+
+    print('----------------------')
+    print('|                    |')
+    print('|   Text Execution   |')
+    print('|                    |')
+    print('----------------------')
     '''Test del tempo di esecuzione'''
     start_time = time.time() #faccio partire il cronometro
     os.system('python ' + arg[0]) #faccio partire il programma
     print("Tempo trascorso del file iniziale: %s" % (time.time() - start_time))
 
     start_time = time.time() #faccio partire il cronometro
-    os.system('chmod 777 ./result/result3.py') #faccio partire il programma
-    os.system('python ./result/result3.py' )
-    print("Tempo trascorso del file offuscato: %s" % (time.time() - start_time))
+    os.system('chmod 777 ./result/obfuscated.py') #faccio partire il programma
+    os.system('python ./result/obfuscated.py' )
+    print("Tempo trascorso del file offuscato: %s" % (time.time() - start_time))    
 
 
 if __name__ == '__main__':
