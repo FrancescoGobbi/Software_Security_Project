@@ -5,7 +5,7 @@ import obfuscate_function as of
 import replace_constants as rc
 import sys
 import getopt
-import os
+import os #per interaggire con il terminale
 import stat #per il chmod
 import time #per calcolare il tempo di ese
 import psutil #per la RAM usata
@@ -29,7 +29,6 @@ def main(argv):
         raise IOError( 'Error: invalid use. Please use : "python3.6 pythonCowObfuscator.py <source.py>" ' )
 
     source = arg[0] #Nome del file passato
-    #key = arg[1] #chiave per offuscare (inserire il Dead Code in modo tale da fare un Watermark)
 
     #check se il file è un file .py 
     extension = os.path.splitext(source)[1]  #take extension of file
@@ -42,6 +41,8 @@ def main(argv):
         print("-----------")
         print ("File exist")
         print("-----------")
+        print('')
+        print('')
     else:
         raise IOError( 'File not exist' )
 
@@ -50,10 +51,15 @@ def main(argv):
         os.makedirs('result')
 
     print('-----------------')
-    print('|               |')
-    print('|   Obfuscate   |')
-    print('|               |')
+    print('                 ')
+    print('    Obfuscate    ')
+    print('                 ')
     print('-----------------')
+    print('')
+    print('')
+    print('...In esecuzione...')
+    print('')
+    print('')
     # 0) create cfg
     cfg = CFGBuilder().build_from_file('Before_Obfuscate', source)
     a = cfg.build_visual('CFG/1)Before_Obfuscate', format='pdf', calls=True)
@@ -111,10 +117,11 @@ def main(argv):
 
 
     print('----------------------')
-    print('|                    |')
-    print('|   Text Execution   |')
-    print('|                    |')
+    print('                      ')
+    print('    Text Execution    ')
+    print('                      ')
     print('----------------------')
+    print('')
     '''Test del tempo di esecuzione'''
     start_time = time.time() #faccio partire il cronometro
     os.system('python ' + arg[0]) #faccio partire il programma
@@ -123,7 +130,9 @@ def main(argv):
     start_time = time.time() #faccio partire il cronometro
     os.system('chmod 777 ./result/obfuscated.py') #faccio partire il programma
     os.system('python ./result/obfuscated.py' )
-    print("Tempo trascorso del file offuscato: %s" % (time.time() - start_time))    
+    print("Tempo trascorso del file offuscato: %s" % (time.time() - start_time)) 
+    print('')
+    print('')   
 
 
 if __name__ == '__main__':

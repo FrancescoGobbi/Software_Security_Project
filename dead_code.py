@@ -86,9 +86,9 @@ def start(source_path):
     La chiave è un valore numerico da convertire in binario e da considerare di esso solo i bit meno significativi indicati 
     dal secondo valore numerico ritornato dall'offuscatore
     '''
-    print(key) #ritorno della chiave
+    #print(key) #ritorno della chiave
     reversed_key = key[::-1] #inverto la lista per comodità nei calcoli, conversione in decimale da binario
-    print(reversed_key)
+    #print(reversed_key)
     #print(len(reversed_key)-1)
     key_val = 0 #valore numerico di ritorno
     for a in range(0,len(reversed_key)):
@@ -102,12 +102,15 @@ def start(source_path):
     #Restituisco le chiavi all'utente
 
     print('-----------------')
-    print('|               |')
-    print('|    Chiave     |')
-    print('|               |')
+    print('                 ')
+    print('     Chiave      ')
+    print('                 ')
     print('-----------------')
+    print('')
     print("Il valore della chiave è: ", key_val)
     print("Il numero dei bit meno significativi da considerare è: ", i) #ritorno del numero di bit da sinistra da considerare 
+    print('')
+    print('')
 
     #add di DeadCode alla fine del file! Viene fatto sempre!
     choice = random.randint(1,10)
