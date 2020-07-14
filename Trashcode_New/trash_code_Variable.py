@@ -37,4 +37,5 @@ Francesco = 10
 Giulietta = 10
 Romeo = 10
 Montecchi = 10
+Don_Abbondio = 10
 Balcone = 0
